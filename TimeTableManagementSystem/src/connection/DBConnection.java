@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-	
+	//creating database connectionS
 	public static Connection connect() {
 		
 			Connection conn = null;
@@ -13,7 +13,7 @@ public class DBConnection {
 			try {
 				
 				Class.forName("org.sqlite.JDBC");
-				conn = DriverManager.getConnection("jdbc:sqlite:ITPM.db");
+				conn = DriverManager.getConnection("jdbc:sqlite:ITP.db");
 				System.out.println("Connected");
 			}
 			catch(Exception e) {
