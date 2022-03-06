@@ -1,5 +1,5 @@
 # WD_B04_ITP_16
-# Project Name - WD_B04_ITP_16
+# Project Name - Timetable Management System
 # Batch - 04
 ### Group Leader - IT9212050 -Muhassan Faizal (IT19212050)
 ### Member 2 - IT18403602 - M.I.M Uzman
