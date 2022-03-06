@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-	//creating database connection
+	//creating database connectionS
 	public static Connection connect() {
 		
 			Connection conn = null;
