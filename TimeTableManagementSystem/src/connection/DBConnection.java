@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-	//creating database connectionS
+	//creating database connection sqlite
 	public static Connection connect() {
 		
 			Connection conn = null;
