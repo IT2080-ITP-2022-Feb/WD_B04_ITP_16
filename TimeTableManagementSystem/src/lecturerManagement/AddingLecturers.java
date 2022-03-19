@@ -77,7 +77,7 @@ private JFrame frame;
 	 */
 	public AddingLecturers() {
 		initialize();
-		setID();
+		
 	}
 
 	/**
@@ -147,9 +147,7 @@ private JFrame frame;
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				welcome welcome=new welcome();
-				welcome.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -289,7 +287,6 @@ private JFrame frame;
 		panel_3.setBounds(253, 174, 1045, 529);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
-		Image photo2=new ImageIcon(this.getClass().getResource("/lec.png")).getImage();
 		
 		JLabel lblNewLabel_1 = new JLabel("Lecturer Name");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
@@ -399,7 +396,7 @@ private JFrame frame;
 		panel_3.add(Rank);
 		
 		JButton btnNewButton_13 = new JButton("GENERATE RANK");
-		btnNewButton_13.setForeground(new Color(0, 0, 0));
+		btnNewButton_13.setForeground(new Color(240, 248, 255));
 		btnNewButton_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -452,11 +449,12 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_13.setBackground(new Color(0, 0, 0));
-		btnNewButton_13.setBounds(710, 319, 258, 41);
+		btnNewButton_13.setBackground(Color.decode("#151F30"));
+		btnNewButton_13.setBounds(710, 322, 258, 41);
 		panel_3.add(btnNewButton_13);
 		
 		JButton btnNewButton_14 = new JButton("CLEAR");
+		btnNewButton_14.setForeground(new Color(240, 248, 255));
 		btnNewButton_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -495,7 +493,7 @@ private JFrame frame;
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_15 = new JButton("ADD");
-		btnNewButton_15.setForeground(new Color(0, 0, 0));
+		btnNewButton_15.setForeground(new Color(240, 248, 255));
 		btnNewButton_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -556,7 +554,7 @@ private JFrame frame;
 						JOptionPane.showMessageDialog(null, "Invalid Lecturer name");
 						
 					}
-					else if(!(LecturerID.getText().trim().matches("^[0-9]{9}"))){
+					else if(!(LecturerID.getText().trim().matches("^[a-z0-9]+"))){
 						JOptionPane.showMessageDialog(null, "Lecturer Id Should Contain Nine Integers");
 					
 					}else if(Faculty.getSelectedItem().toString().equals("Computing") && Deprtment.getSelectedItem().toString().equals("Electrical")){
@@ -614,13 +612,13 @@ private JFrame frame;
 		                    int xx = sta.executeUpdate(query);
 		                    
 		                    if (xx == 0) {
-		                    	JOptionPane.showMessageDialog(btnNewButton, "This is alredy exist");
+		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist");
 							} else {
 		                    
 		                    
 		                    
 		                    JOptionPane.showMessageDialog(null,
-		                            "" + msg + "'s account is sucessfully created and added to the system, please add active hours and days ");
+		                            "" + msg + "' Record is sucessfully created and added to the system, please add active hours and days ");
 		                    Addactivedayshoursforlecturers activedays=new Addactivedayshoursforlecturers();
 		    				activedays.main(null);
 		    				//frame.setVisible(false);
@@ -700,11 +698,27 @@ private JFrame frame;
 		txtTimetableGenerator = new JTextField();
 		txtTimetableGenerator.setForeground(new Color(255, 255, 255));
 		txtTimetableGenerator.setBackground(Color.decode("#4660BD"));
-		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 48));
+		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 38));
 		txtTimetableGenerator.setText("ADD LECTURERS");
-		txtTimetableGenerator.setBounds(649, 44, 338, 110);
+		txtTimetableGenerator.setBounds(389, 57, 266, 72);
 		frame.getContentPane().add(txtTimetableGenerator);
 		txtTimetableGenerator.setColumns(10);
+		
+		
+		
+		JButton btnNewButton_13_1 = new JButton("Manage Lecturers");
+		btnNewButton_13_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManageLecturers managelecturers=new ManageLecturers();
+				managelecturers.main(null);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_13_1.setForeground(new Color(240, 248, 255));
+		btnNewButton_13_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_13_1.setBackground(Color.decode("#554B82"));
+		btnNewButton_13_1.setBounds(964, 88, 258, 41);
+		frame.getContentPane().add(btnNewButton_13_1);
 		
 		
 	}
