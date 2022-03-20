@@ -696,11 +696,12 @@ private JFrame frame;
 		frame.getContentPane().add(TimetableBtn);
 		
 		txtTimetableGenerator = new JTextField();
+		txtTimetableGenerator.setHorizontalAlignment(SwingConstants.CENTER);
 		txtTimetableGenerator.setForeground(new Color(255, 255, 255));
 		txtTimetableGenerator.setBackground(Color.decode("#4660BD"));
 		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 38));
 		txtTimetableGenerator.setText("ADD LECTURERS");
-		txtTimetableGenerator.setBounds(389, 57, 266, 72);
+		txtTimetableGenerator.setBounds(358, 55, 464, 72);
 		frame.getContentPane().add(txtTimetableGenerator);
 		txtTimetableGenerator.setColumns(10);
 		
