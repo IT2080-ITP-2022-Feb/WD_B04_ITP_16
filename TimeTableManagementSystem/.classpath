@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Images"/>
 	<classpathentry kind="lib" path="Resources/sqlite-jdbc-3.36.0.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ASUS/Desktop/Jar Files/jgoodies-common-1.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ASUS/Desktop/Jar Files/jgoodies-forms-1.8.0.jar"/>
