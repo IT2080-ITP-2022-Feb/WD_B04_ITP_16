@@ -38,7 +38,7 @@ import Timetables.LecturerTimeTable;
 
 
 /**
- * @author uzman`1
+ * @author uzman`1s
  *
  */
 public class AddTags {
