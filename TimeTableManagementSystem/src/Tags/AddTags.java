@@ -38,7 +38,7 @@ import Timetables.LecturerTimeTable;
 
 
 /**
- * @author Chamika Abesekara
+ * @author uzman
  *
  */
 public class AddTags {
