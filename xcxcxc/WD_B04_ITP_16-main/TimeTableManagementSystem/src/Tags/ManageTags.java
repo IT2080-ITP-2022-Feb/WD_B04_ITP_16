@@ -100,13 +100,13 @@ private JFrame frame;
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setBackground(new Color(51,0,0));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setBackground(new Color(51,0,0));
+		frame.getContentPane().setBackground(new Color(0, 0, 255));
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Time Table Management System");
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(51, 51, 102));
+		panel_1.setBackground(new Color(0, 0, 255));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
 		
@@ -257,37 +257,15 @@ private JFrame frame;
 		btnNewButton_9.setBounds(10, 490, 213, 38);
 		panel_1.add(btnNewButton_9);
 		
-		JButton btnNewButton_10_1 = new JButton("Statistics");
-		btnNewButton_10_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				StatisticsGraph statistics=new StatisticsGraph();
-				statistics.main(null);
-				frame.setVisible(false);
-
-			}
-		});
-		btnNewButton_10_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_10_1.setBackground(Color.CYAN);
-		btnNewButton_10_1.setBounds(10, 538, 213, 38);
-		panel_1.add(btnNewButton_10_1);
-		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
+		panel.setBackground(new Color(0, 0, 255));
 		panel.setBounds(10, 10, 1216, 68);
 		frame.getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblNewLabel.setBackground(Color.BLUE);
-		lblNewLabel.setBounds(430, 0, 329, 68);
-		panel.add(lblNewLabel);
-		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(51, 51, 102));
+		panel_2.setBackground(new Color(0, 0, 255));
 		panel_2.setBounds(253, 88, 973, 76);
 		frame.getContentPane().add(panel_2);
 		
@@ -349,7 +327,7 @@ private JFrame frame;
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(253, 174, 973, 529);
-		panel_3.setBackground(new Color(204, 255, 102));
+		panel_3.setBackground(new Color(0, 0, 255));
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
