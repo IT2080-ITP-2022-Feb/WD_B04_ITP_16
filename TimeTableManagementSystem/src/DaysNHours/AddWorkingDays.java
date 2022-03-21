@@ -45,6 +45,9 @@ import javax.swing.JCheckBox;
 
 public class AddWorkingDays {
 
+	private static final String DBConnection = null;
+
+
 	/**
 	 * @param args
 	 */
@@ -67,7 +70,7 @@ public class AddWorkingDays {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//DBConnection.connect();
+		DBonnection.connect();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -276,8 +279,8 @@ public class AddWorkingDays {
 		panel_1.add(btnNewButton_10_1);
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
-		panel.setBounds(10, 10, 1216, 68);
+		panel.setBackground(new Color(0, 0, 128));
+		panel.setBounds(10, 0, 1216, 68);
 		frame.getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
@@ -322,18 +325,21 @@ public class AddWorkingDays {
 		panel_2.add(btnNewButton_12);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setForeground(new Color(255, 255, 255));
 		panel_3.setBounds(253, 174, 973, 529);
 		frame.getContentPane().add(panel_3);
-		panel_3.setBackground(new Color(204, 255, 102));
+		panel_3.setBackground(new Color(25, 25, 112));
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("No of Working Days");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_1.setBackground(new Color(148, 0, 211));
 		lblNewLabel_1.setBounds(10, 30, 230, 50);
 		panel_3.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Working Days");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_2.setBounds(10, 90, 230, 41);
 		panel_3.add(lblNewLabel_2);
@@ -381,8 +387,9 @@ public class AddWorkingDays {
 		panel_3.add(chckbxSunday);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Working Time Per Day");
+		lblNewLabel_2_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_2_1.setBounds(10, 304, 230, 41);
+		lblNewLabel_2_1.setBounds(10, 316, 230, 41);
 		panel_3.add(lblNewLabel_2_1);
 		
 		JSpinner hours_1 = new JSpinner();
@@ -398,11 +405,13 @@ public class AddWorkingDays {
 		panel_3.add(minutes_1);
 		
 		JLabel lblHours = new JLabel("Hours");
+		lblHours.setForeground(new Color(255, 255, 255));
 		lblHours.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblHours.setBounds(340, 321, 85, 34);
+		lblHours.setBounds(355, 320, 85, 34);
 		panel_3.add(lblHours);
 		
 		JLabel lblMinute = new JLabel("Minute");
+		lblMinute.setForeground(new Color(255, 255, 255));
 		lblMinute.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblMinute.setBounds(546, 321, 85, 34);
 		panel_3.add(lblMinute);
