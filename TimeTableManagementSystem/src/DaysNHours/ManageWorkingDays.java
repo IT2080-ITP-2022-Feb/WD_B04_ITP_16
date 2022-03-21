@@ -106,7 +106,7 @@ public class ManageWorkingDays {
 	 */
 private void initialize() {
 		frame = new JFrame();
-		frame.setBackground(new Color("#4660BD"));
+		//frame.setBackground(new Color("#4660BD"));
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);;
@@ -136,9 +136,9 @@ private void initialize() {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				AddingLecturers addinglectures=new AddingLecturers();
-				addinglectures.main(null);
-				frame.setVisible(false);
+				//AddingLecturers addinglectures=new AddingLecturers();
+				//addinglectures.main(null);
+				//frame.setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -257,13 +257,11 @@ private void initialize() {
 		btnNewButton_10_1.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
-
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
-		panel.setBounds(10, 10, 1216, 68);
+		panel.setBackground(new Color(0, 0, 128));
+		panel.setBounds(10, 0, 1216, 68);
 		frame.getContentPane().add(panel);
-		
 		
 		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
