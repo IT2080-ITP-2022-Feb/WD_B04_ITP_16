@@ -42,10 +42,7 @@ import javax.swing.JCheckBox;
 
 
 
-/**
- * @author Chamika Abesekara
- *
- */
+
 public class AddWorkingDays {
 
 	/**
