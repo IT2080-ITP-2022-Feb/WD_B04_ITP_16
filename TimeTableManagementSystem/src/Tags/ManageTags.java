@@ -43,7 +43,7 @@ import Timetables.LecturerTimeTable;
 import net.proteanit.sql.DbUtils;
 
 /**
- * @author uzman
+ * @author uzmanw
  *
  */
 public class ManageTags {
