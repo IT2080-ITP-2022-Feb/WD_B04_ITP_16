@@ -44,7 +44,7 @@ import Timetables.LecturerTimeTable;
 public class AddTags {
 
 	/**
-	 * @param args
+	 * @param g args
 	 */
 	
 private JFrame frame;
