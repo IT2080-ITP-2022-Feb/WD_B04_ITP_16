@@ -101,7 +101,7 @@ private JFrame frame;
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(0, 0, 255));
+		panel_1.setBackground(new Color(240, 248, 255));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
 		
@@ -267,6 +267,13 @@ private JFrame frame;
 		lblNewLabel.setBackground(Color.BLUE);
 		lblNewLabel.setBounds(430, 0, 329, 68);
 		panel.add(lblNewLabel);
+		
+		JButton btnTimetableGenerator = new JButton("TIMETABLE GENERATOR");
+		btnTimetableGenerator.setForeground(Color.BLACK);
+		btnTimetableGenerator.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		btnTimetableGenerator.setBackground(Color.CYAN);
+		btnTimetableGenerator.setBounds(10, 10, 213, 58);
+		panel.add(btnTimetableGenerator);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
