@@ -439,10 +439,7 @@ private JFrame frame;
 				Rank.setText(combination);
 				
 			
-				/*String combination=getID+getRank;
-				String AutoFillingRank=combination;
-				
-				textFieldRank.setText(AutoFillingRank);*/
+		
 				
 				
 			
@@ -551,24 +548,24 @@ private JFrame frame;
 							
 						
 					}else if(!(LecturerName.getText().trim().matches("^[A-Za-z]+"))){
-						JOptionPane.showMessageDialog(null, "Invalid Lecturer name");
+						JOptionPane.showMessageDialog(null, "Invalid Lecturer name","Warning",JOptionPane.WARNING_MESSAGE);
 						
 					}
-					else if(!(LecturerID.getText().trim().matches("^[a-z0-9]+"))){
-						JOptionPane.showMessageDialog(null, "Lecturer Id Should Contain Nine Integers");
+					else if(!(LecturerID.getText().trim().matches("^[A-Za-z0-9]+"))){
+						JOptionPane.showMessageDialog(null, "Lecturer Id Should Contain the following format (Lec00x)","Warning",JOptionPane.WARNING_MESSAGE);
 					
 					}else if(Faculty.getSelectedItem().toString().equals("Computing") && Deprtment.getSelectedItem().toString().equals("Electrical")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Computing")&&Deprtment.getSelectedItem().toString().equals("Civil")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Computing")&& Deprtment.getSelectedItem().toString().equals("Mechanical")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("SE")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("IT")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("DS")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(!(combination.equals(Rank.getText().toString()))) {
 						
 						
@@ -612,13 +609,13 @@ private JFrame frame;
 		                    int xx = sta.executeUpdate(query);
 		                    
 		                    if (xx == 0) {
-		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist");
+		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist","Warning",JOptionPane.WARNING_MESSAGE);
 							} else {
 		                    
 		                    
 		                    
-		                    JOptionPane.showMessageDialog(null,
-		                            "" + msg + "' Record is sucessfully created and added to the system, please add active hours and days ");
+		                    JOptionPane.showMessageDialog(null,msg+" Lecturer's Record of Lecturer is sucessfully created and added to the system, "
+		                    		+ "please add active hours and days","Info",JOptionPane.INFORMATION_MESSAGE);
 		                    Addactivedayshoursforlecturers activedays=new Addactivedayshoursforlecturers();
 		    				activedays.main(null);
 		    				//frame.setVisible(false);
@@ -647,7 +644,7 @@ private JFrame frame;
 					
 					
 				catch(Exception w){
-					JOptionPane.showMessageDialog(null, w );
+					JOptionPane.showMessageDialog(null, "Lecturer ID Already exits","Error",JOptionPane.ERROR_MESSAGE );
 					
 				}
 				

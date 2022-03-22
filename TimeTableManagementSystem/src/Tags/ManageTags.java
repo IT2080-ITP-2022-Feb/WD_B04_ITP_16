@@ -28,19 +28,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import Connection.DBConnection;
-import ConsectiveSession.AddConsecutiveSession;
-import DaysNHours.AddWorkingDays;
-import Home.welcome;
-import Lecturers_Management.AddingLecturers;
-import Location.AddLocations;
-import Rooms.ManageSessionsRooms;
-import Sessions.AddSessions;
-import Statistics.StatisticsGraph;
-import Student_Groups.AddStudentGroups;
-import Subjects.AddSubjects;
-import Timetables.LecturerTimeTable;
+
+import Locations_Management.AddLocations;
+import connection.DBConnection;
+import home.DashBoard;
+import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
+
+
 
 /**
  * @author uzmanws
@@ -113,7 +108,7 @@ private JFrame frame;
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				welcome welcome=new welcome();
+				DashBoard welcome=new DashBoard();
 				welcome.main(null);
 				frame.setVisible(false);
 
@@ -141,9 +136,7 @@ private JFrame frame;
 		JButton btnNewButton_2 = new JButton("Student Groups");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddStudentGroups student=new AddStudentGroups();
-				student.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -154,9 +147,7 @@ private JFrame frame;
 		JButton btnNewButton_3 = new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddSubjects addsubjects=new AddSubjects();
-				addsubjects.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -167,9 +158,7 @@ private JFrame frame;
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddWorkingDays workingdays=new AddWorkingDays();
-				workingdays.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -180,9 +169,7 @@ private JFrame frame;
 		JButton btnNewButton_5 = new JButton("Sessions");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddSessions addsessions=new AddSessions();
-				addsessions.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -221,9 +208,7 @@ private JFrame frame;
 		JButton btnNewButton_8_1 = new JButton("Session Types");
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddConsecutiveSession AddConsecutiveSession=new AddConsecutiveSession();
-				AddConsecutiveSession.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -234,9 +219,7 @@ private JFrame frame;
 		JButton btnNewButton_8 = new JButton("Session Rooms");
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ManageSessionsRooms ssr=new ManageSessionsRooms();
-				ssr.main(null);
-				frame.setVisible(false);
+		
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -247,9 +230,7 @@ private JFrame frame;
 		JButton btnNewButton_9 = new JButton("Generate Timetables");
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LecturerTimeTable tt=new LecturerTimeTable();
-				tt.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -260,9 +241,7 @@ private JFrame frame;
 		JButton btnNewButton_10_1 = new JButton("Statistics");
 		btnNewButton_10_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StatisticsGraph statistics=new StatisticsGraph();
-				statistics.main(null);
-				frame.setVisible(false);
+			
 
 			}
 		});

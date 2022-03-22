@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64.Decoder;
 
+import javax.security.auth.Refreshable;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -67,6 +68,7 @@ public class ManageLecturers {
 	 */
 	public ManageLecturers() {
 		initialize();
+		Refresh();
 	}
 
 	/**
@@ -313,6 +315,7 @@ public class ManageLecturers {
 					PreparedStatement pst=con.prepareStatement(query);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Data Updated");
+					Refresh();
 					pst.close();
 					}
 					
@@ -368,6 +371,7 @@ public class ManageLecturers {
 					PreparedStatement pst=con.prepareStatement(query);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Deleted");
+					Refresh();
 					pst.close();
 					}
 					
@@ -652,21 +656,21 @@ public class ManageLecturers {
 			public void actionPerformed(ActionEvent e) {
 				
 				
+				Refresh();
 				
-				
-				Connection conn = DBConnection.connect();
-				
-				
-	            try {
-	            	String sql="Select * from Lecturers ";
-					pst=conn.prepareStatement(sql);
-					
-					rs=pst.executeQuery();
-					table_1.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+//				Connection conn = DBConnection.connect();
+//				
+//				
+//	            try {
+//	            	String sql="Select * from Lecturers ";
+//					pst=conn.prepareStatement(sql);
+//					
+//					rs=pst.executeQuery();
+//					table_1.setModel(DbUtils.resultSetToTableModel(rs));
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
 	            
 				
 				
@@ -683,5 +687,22 @@ public class ManageLecturers {
 		TimetableBtn.setBackground(new Color(255, 122, 72));
 		TimetableBtn.setBounds(10, 10, 233, 72);
 		frame.getContentPane().add(TimetableBtn);
+	}
+	
+	public void Refresh() {
+		
+		Connection conn = DBConnection.connect();
+		
+		
+        try {
+        	String sql="Select * from Lecturers ";
+			pst=conn.prepareStatement(sql);
+			
+			rs=pst.executeQuery();
+			table_1.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 }

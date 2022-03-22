@@ -25,17 +25,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import Connection.DBConnection;
-import ConsectiveSession.AddConsecutiveSession;
-import DaysNHours.AddWorkingDays;
-import Home.welcome;
-import Lecturers_Management.AddingLecturers;
-import Sessions.AddSessions;
-import Statistics.StatisticsGraph;
-import Student_Groups.AddStudentGroups;
-import Subjects.AddSubjects;
+
 import Tags.AddTags;
-import Timetables.LecturerTimeTable;
+
+import home.DashBoard;
 import net.proteanit.sql.DbUtils;
 
 public class ManageLocations {
@@ -115,7 +108,7 @@ public class ManageLocations {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				welcome welcome=new welcome();
+				DashBoard welcome=new DashBoard();
 				welcome.main(null);
 				frame.setVisible(false);
 			}
@@ -129,7 +122,7 @@ public class ManageLocations {
 		JButton btnNewButton_1= new JButton("Lecturers");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddingLecturers addinglectures=new AddingLecturers();
+				lecturerManagement.AddingLecturers addinglectures=new lecturerManagement.AddingLecturers();
 				addinglectures.main(null);
 				frame.setVisible(false);
 			}
@@ -142,9 +135,7 @@ public class ManageLocations {
 		JButton btnNewButton_2 = new JButton("Students");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddStudentGroups student=new AddStudentGroups();
-				student.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -155,9 +146,7 @@ public class ManageLocations {
 		JButton btnNewButton_3= new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddSubjects addsubjects=new AddSubjects();
-				addsubjects.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -168,9 +157,7 @@ public class ManageLocations {
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddWorkingDays workingdays=new AddWorkingDays();
-				workingdays.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -181,9 +168,7 @@ public class ManageLocations {
 		JButton btnNewButton_5 = new JButton("Sessions");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddSessions addsessions=new AddSessions();
-				addsessions.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -221,9 +206,7 @@ public class ManageLocations {
 		JButton btnNewButton_8 = new JButton("Session Rooms");
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddConsecutiveSession AddConsecutiveSession=new AddConsecutiveSession();
-				AddConsecutiveSession.main(null);
-				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -234,9 +217,7 @@ public class ManageLocations {
 		JButton btnNewButton_9 = new JButton("Generate Timetables");
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LecturerTimeTable lectime=new LecturerTimeTable();
-				lectime.main(null);
-				frame.setVisible(false);
+				
 
 			}
 		});
@@ -249,9 +230,7 @@ public class ManageLocations {
 		JButton btnNewButton_10 = new JButton("Statistics");
 		btnNewButton_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StatisticsGraph statistics=new StatisticsGraph();
-				statistics.main(null);
-				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_10.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -274,7 +253,7 @@ public class ManageLocations {
 					if(textField_4.getText().equals("")||textField_1.getText().equals("")||textField_2.getText().equals("")||comboBoxRoomType.getSelectedItem().equals("")||textField_3.getText().equals("")){
 						JOptionPane.showMessageDialog(null, "Please fill the form and check the details");
 					}else {
-					Connection con = DBConnection.connect();
+					Connection con = connection.DBConnection.connect();
 					
 					String query="Update Locations set RoomName='"+textField_2.getText()+"',BuildingName='"+textField_1.getText()+"' ,RoomType='"+comboBoxRoomType.getSelectedItem().toString()+"',Capacity='"+textField_3.getText()+"'  where LID='"+textField_4.getText()+"' ";
 					PreparedStatement pst=con.prepareStatement(query);
@@ -327,7 +306,7 @@ public class ManageLocations {
 						JOptionPane.showMessageDialog(null, "PLEASE SELECT A Building Name");
 					}else {
 					
-						Connection con = DBConnection.connect();
+						Connection con = connection.DBConnection.connect();
 						
 					
 					String query="Delete from Locations where LID='"+textField_4.getText()+"'";
@@ -498,7 +477,7 @@ public class ManageLocations {
 				
 				
 				
-				Connection conn = DBConnection.connect();
+				Connection conn = connection.DBConnection.connect();
 				
 				
 	            try {
