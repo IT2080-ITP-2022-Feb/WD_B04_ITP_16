@@ -55,7 +55,7 @@ public class ManageLocations {
 
 	/**
 	 * Launch the application.
-	 * gf
+	 * uzman
 	 * 
 	 */
 	

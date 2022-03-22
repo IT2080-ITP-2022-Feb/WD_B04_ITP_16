@@ -46,7 +46,7 @@ public class AddLocations {
 	private JTextField RoomName;
 	private JTextField Capacity;
 	/**
-	 * Launch tghe application.
+	 * Launch tghe application.uzman.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
