@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -74,12 +76,24 @@ private JFrame frame;
 
 	/**
 	 * Create the application.
+	 * @return 
 	 */
+
 	public AddingLecturers() {
 		initialize();
 		
 	}
-
+	
+	public String generateID() {
+		ArrayList<String> arrayList = new ArrayList<String>();
+		String name = "Lec000";
+		int rand = (int) (Math.random()*10);
+		String id=name+ rand;
+		
+		return id;
+	}
+	
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -292,14 +306,14 @@ private JFrame frame;
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		
-		lblNewLabel_1.setBounds(10, 10, 148, 41);
+		lblNewLabel_1.setBounds(10, 83, 148, 41);
 		panel_3.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Lecturer ID");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_2.setBounds(10, 83, 148, 41);
+		lblNewLabel_2.setBounds(10, 10, 148, 41);
 		panel_3.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Faculty");
@@ -341,15 +355,16 @@ private JFrame frame;
 		LecturerName = new JTextField();
 		LecturerName.setBackground(new Color(255, 255, 255));
 		LecturerName.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		LecturerName.setBounds(145, 12, 299, 41);
+		LecturerName.setBounds(149, 83, 299, 41);
 		panel_3.add(LecturerName);
 		LecturerName.setColumns(10);
 		
 		LecturerID = new JTextField();
+		LecturerID.setEditable(false);
 		LecturerID.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		LecturerID.setColumns(10);
 		LecturerID.setBackground(new Color(255, 255, 255));
-		LecturerID.setBounds(145, 83, 299, 41);
+		LecturerID.setBounds(149, 10, 299, 41);
 		panel_3.add(LecturerID);
 		
 		JComboBox Faculty = new JComboBox();
@@ -395,7 +410,7 @@ private JFrame frame;
 		Rank.setBounds(710, 246, 202, 41);
 		panel_3.add(Rank);
 		
-		JButton btnNewButton_13 = new JButton("GENERATE RANK");
+		JButton btnNewButton_13 = new JButton("GENERATE ID AND RANK");
 		btnNewButton_13.setForeground(new Color(240, 248, 255));
 		btnNewButton_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -415,39 +430,63 @@ private JFrame frame;
 				/*if(comboBoxLevel.getSelectedItem().toString().matches(p)) {
 					getRank=1;
 				}*/
-				int i=0;
+				String i= "000";
 				if(getRank.contains(p)) {
-				 i=1;
+					i = "001";
+					//String combination=getRank.substring(0,3);
 					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+				 
 				}
 				if(getRank.contains(A)) {
-					i=2;
+					i = "002";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+					
 				}
 				if(getRank.contains(S)) {
-					i=3;
+					i = "003";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Se)) {
-					i=4;
+					i = "004";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Lec)) {
-					i=5;
+					i = "005";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(AL)) {
-					i=6;
+					i = "006";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
-				String combination=i+"."+getID;
-				Rank.setText(combination);
-				
 			
-		
+				
+				LecturerID.setText(generateID());
 				
 				
 			
 			}
 		});
+		
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_13.setBackground(Color.decode("#151F30"));
-		btnNewButton_13.setBounds(710, 322, 258, 41);
+		btnNewButton_13.setBounds(710, 320, 314, 41);
 		panel_3.add(btnNewButton_13);
 		
 		JButton btnNewButton_14 = new JButton("CLEAR");
@@ -484,6 +523,8 @@ private JFrame frame;
 				
 			}
 		});
+		
+		
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_14.setBackground(Color.decode("#0593A2"));
 		btnNewButton_14.setBounds(543, 409, 157, 41);
@@ -497,43 +538,9 @@ private JFrame frame;
 			
 				
 				
-				String autofill;
-				String p="Professor";               
-				String A="AssistantProfessor";  
-				String S ="Senior Lecturer(HG)";
-				String Se="Senior Lecturer";   
-				String Lec="Lecturer";
-				String AL="Assistant Lecturer";
-				String getID=LecturerID.getText();
-				String getRank=(String) Level.getSelectedItem();
 			
-				/*if(comboBoxLevel.getSelectedItem().toString().matches(p)) {
-					getRank=1;
-				}*/
-				int i=0;
-				if(getRank.contains(p)) {
-				 i=1;
-					
-				}
-				if(getRank.contains(A)) {
-					i=2;
-				}
-				if(getRank.contains(S)) {
-					i=3;
-				}
-				if(getRank.contains(Se)) {
-					i=4;
-				}
-				if(getRank.contains(Lec)) {
-					i=5;
-				}
-				if(getRank.contains(AL)) {
-					i=6;
-				}
-				String combination=i+"."+getID;
 				
-
-					
+			
 					
 					
 					
@@ -541,7 +548,7 @@ private JFrame frame;
 				try {
 					
 					
-					if(LecturerName.getText().equals("") ||LecturerID.getText().equals("")||Faculty.getSelectedItem().equals("")||Deprtment.getSelectedItem().equals("")||Center.getSelectedItem().equals("")||Building.getSelectedItem().equals("")||Level.getSelectedItem().equals("")||Rank.getText().equals("")) {
+					if(LecturerName.getText().equals("")||LecturerID.getText().equals("") ||Faculty.getSelectedItem().equals("")||Deprtment.getSelectedItem().equals("")||Center.getSelectedItem().equals("")||Building.getSelectedItem().equals("")||Level.getSelectedItem().equals("")||Rank.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Please fill the form and press generate button to generate the rank");
 						
 						 
@@ -566,17 +573,8 @@ private JFrame frame;
 						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("DS")){
 						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
-					}else if(!(combination.equals(Rank.getText().toString()))) {
-						
-						
-						
-						JOptionPane.showMessageDialog(null, "Please Generate The Rank Again");
-					
-					
-					
-					
-				
-				}else {
+					}
+				else {
 						Connection connec = DBConnection.connect();
 					
 						
@@ -594,7 +592,7 @@ private JFrame frame;
 				               
 
 							String msg = "" + Name;
-			                msg += " \n";
+			                
 			                
 			             
 							
@@ -604,6 +602,7 @@ private JFrame frame;
 
 		                    String query = "INSERT INTO Lecturers values('" + ID + "','" + Name + "','" + faculty + "','" +
 		                    		center + "','" + Department + "','" + building + "','"+ level +"','"+ rank +"',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null)";
+
 
 		                    Statement sta = con.createStatement();
 		                    int xx = sta.executeUpdate(query);
@@ -621,7 +620,7 @@ private JFrame frame;
 		    				//frame.setVisible(false);
 		                    
 		                    con.close();
-		                    LecturerName.setText(null);
+		                      LecturerName.setText(null);
 							  LecturerID.setText(null);
 							  Faculty.setSelectedItem(null);
 							  Deprtment.setSelectedItem(null);
@@ -645,6 +644,7 @@ private JFrame frame;
 					
 				catch(Exception w){
 					JOptionPane.showMessageDialog(null, "Lecturer ID Already exits","Error",JOptionPane.ERROR_MESSAGE );
+					System.out.println(w);
 					
 				}
 				
