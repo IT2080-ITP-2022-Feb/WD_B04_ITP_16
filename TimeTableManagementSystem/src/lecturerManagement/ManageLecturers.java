@@ -328,7 +328,7 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_13.setBackground(Color.decode("#3EB482"));
+		btnNewButton_13.setBackground(Color.decode("#0593A2"));
 		btnNewButton_13.setBounds(885, 303, 235, 40);
 		panel_3.add(btnNewButton_13);
 		
@@ -387,14 +387,14 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_15.setBackground(new Color(255, 0, 0));
+		btnNewButton_15.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15.setBounds(885, 403, 235, 40);
 		panel_3.add(btnNewButton_15);
 		
 		JLabel lblNewLabel_1 = new JLabel("Lecturer Name");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_1.setBackground(Color.decode("#FA1B1B"));
+		lblNewLabel_1.setBackground(Color.decode("#0593A2"));
 		lblNewLabel_1.setBounds(24, 290, 132, 29);
 		panel_3.add(lblNewLabel_1);
 		
@@ -587,33 +587,47 @@ public class ManageLecturers {
 				String AL="Assistant Lecturer";
             	
             	
-            	int i=0;
+				String i= "000";
 				if(levelvalue.contains(p)) {
-				 i=1;
+					i = "001";
+					String combination=p.substring(0,4);
+					textField_2.setText(combination+i);
 					
 				}
 				if(levelvalue.contains(A)) {
-					i=2;
+					i = "001";
+					String combination=A.substring(0,4);
+					textField_2.setText(combination+i);
 				}
 				if(levelvalue.contains(S)) {
-					i=3;
+					i = "001";
+					String combination=S.substring(0,4);
+					textField_2.setText(combination+i);
 				}
 				if(levelvalue.contains(Se)) {
-					i=4;
+					i = "001";
+					String combination=Se.substring(0,3);
+					textField_2.setText(combination+i);
 				}
 				if(levelvalue.contains(Lec)) {
-					i=5;
+					i = "001";
+					String combination=Lec.substring(0,4);
+					textField_2.setText(combination+i);
 				}
 				if(levelvalue.contains(AL)) {
-					i=6;
+					i = "001";
+					String combination=AL.substring(0,4);
+					textField_2.setText(combination+i);;
 				}
-				String combination=i+"."+ID;
-				textField_2.setText(combination);
+			
+				
+				
+			
 				
 			}
 		});
 		btnNewButton_14_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_14_1.setBackground(new Color(0, 0, 0));
+		btnNewButton_14_1.setBackground(Color.BLACK);
 		btnNewButton_14_1.setBounds(885, 253, 235, 40);
 		panel_3.add(btnNewButton_14_1);
 		
@@ -627,7 +641,7 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_15_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_15_1.setBackground(new Color(255, 255, 0));
+		btnNewButton_15_1.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15_1.setBounds(885, 453, 235, 40);
 		panel_3.add(btnNewButton_15_1);
 		
@@ -652,6 +666,7 @@ public class ManageLecturers {
 		panel_2.add(btnNewButton_11);
 		
 		JButton btnNewButton_12 = new JButton("Refresh");
+		btnNewButton_12.setForeground(Color.WHITE);
 		btnNewButton_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -677,7 +692,7 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(Color.decode("#FF7A48"));
+		btnNewButton_12.setBackground(Color.decode("#554B82"));
 		btnNewButton_12.setBounds(1001, 9, 266, 58);
 		panel_2.add(btnNewButton_12);
 		
