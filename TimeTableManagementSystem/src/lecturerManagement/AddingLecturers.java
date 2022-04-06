@@ -37,7 +37,7 @@ import java.awt.SystemColor;
 
 public class AddingLecturers {
 
-private JFrame frame;
+public JFrame frame;
 
 	
 	PreparedStatement pstd=null;
@@ -88,6 +88,7 @@ private JFrame frame;
 		ArrayList<String> arrayList = new ArrayList<String>();
 		String name = "Lec000";
 		int rand = (int) (Math.random()*10);
+		
 		String id=name+ rand;
 		
 		return id;
@@ -297,6 +298,7 @@ private JFrame frame;
 		panel_1.add(btnNewButton_10_1);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(null);
 		panel_3.setBackground(Color.decode("#4660BD"));
 		panel_3.setBounds(253, 174, 1045, 529);
 		frame.getContentPane().add(panel_3);
@@ -334,7 +336,7 @@ private JFrame frame;
 		lblNewLabel_5.setBounds(10, 165, 129, 33);
 		panel_3.add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("Building");
+		JLabel lblNewLabel_6 = new JLabel("Location");
 		lblNewLabel_6.setForeground(new Color(255, 255, 255));
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_6.setBounds(563, 161, 148, 41);
@@ -392,14 +394,14 @@ private JFrame frame;
 		Building.setModel(new DefaultComboBoxModel(new String[] {"A", "B", "C", "D"}));
 		Building.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		Building.setBackground(new Color(255, 255, 255));
-		Building.setBounds(149, 161, 295, 41);
+		Building.setBounds(149, 161, 299, 41);
 		panel_3.add(Building);
 		
 		JComboBox Level = new JComboBox();
 		Level.setModel(new DefaultComboBoxModel(new String[] {"Professor               ", "AssistantProfessor  ", "Senior Lecturer(HG)", "Senior Lecturer   ", "Lecturer", "Assistant Lecturer"}));
 		Level.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		Level.setBackground(new Color(255, 255, 255));
-		Level.setBounds(145, 246, 299, 41);
+		Level.setBounds(145, 246, 303, 41);
 		panel_3.add(Level);
 		
 		Rank = new JTextField();
@@ -485,7 +487,7 @@ private JFrame frame;
 		});
 		
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_13.setBackground(Color.decode("#151F30"));
+		btnNewButton_13.setBackground(Color.BLACK);
 		btnNewButton_13.setBounds(710, 320, 314, 41);
 		panel_3.add(btnNewButton_13);
 		
@@ -527,7 +529,7 @@ private JFrame frame;
 		
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_14.setBackground(Color.decode("#0593A2"));
-		btnNewButton_14.setBounds(543, 409, 157, 41);
+		btnNewButton_14.setBounds(521, 409, 157, 41);
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_15 = new JButton("ADD");
@@ -673,7 +675,7 @@ private JFrame frame;
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_15.setBackground(Color.decode("#103778"));
-		btnNewButton_15.setBounds(344, 409, 157, 41);
+		btnNewButton_15.setBounds(297, 409, 157, 41);
 		panel_3.add(btnNewButton_15);
 		
 		table = new JTable();

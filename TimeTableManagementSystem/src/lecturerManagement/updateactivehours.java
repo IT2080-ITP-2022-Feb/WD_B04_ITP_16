@@ -604,7 +604,7 @@ public class updateactivehours {
 		});
 		btnNewButton_11_1_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_11_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11_1_1.setBackground(new Color(0, 255, 0));
+		btnNewButton_11_1_1.setBackground(Color.decode("#103778"));
 		btnNewButton_11_1_1.setBounds(325, 370, 310, 47);
 		panel_3.add(btnNewButton_11_1_1);
 		
@@ -619,7 +619,7 @@ public class updateactivehours {
 		btnNewButton_11.setForeground(new Color(0, 0, 0));
 		
 		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11.setBackground(new Color(255, 0, 0));
+		btnNewButton_11.setBackground(Color.decode("#F21D2F"));
 		
 		JButton btnNewButton_11_1 = new JButton("Refresh");
 		btnNewButton_11_1.addActionListener(new ActionListener() {
@@ -645,7 +645,7 @@ public class updateactivehours {
 		});
 		btnNewButton_11_1.setForeground(Color.BLACK);
 		btnNewButton_11_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11_1.setBackground(Color.decode("#FF7A48"));
+		btnNewButton_11_1.setBackground(Color.decode("#554B82"));
 		btnNewButton_11_1.setBounds(772, 27, 123, 41);
 		panel_3.add(btnNewButton_11_1);
 		table.addMouseListener(new MouseAdapter() {

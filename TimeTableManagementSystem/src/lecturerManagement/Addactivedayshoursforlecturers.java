@@ -333,7 +333,7 @@ public class Addactivedayshoursforlecturers {
 		JLabel lblNewLabel_9 = new JLabel("Active days and hours");
 		lblNewLabel_9.setForeground(new Color(240, 248, 255));
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_9.setBackground(new Color(240, 248, 255));
+		lblNewLabel_9.setBackground(Color.decode("#0593A2"));
 		lblNewLabel_9.setBounds(84, 24, 190, 24);
 		panel_3_1.add(lblNewLabel_9);
 		
@@ -666,7 +666,7 @@ public class Addactivedayshoursforlecturers {
 			}
 		});
 		btnNewButton_15_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15_1.setBackground(new Color(255, 0, 0));
+		btnNewButton_15_1.setBackground(Color.decode("#F21D2F"));
 		btnNewButton_15_1.setBounds(814, 10, 149, 41);
 		panel_3.add(btnNewButton_15_1);
 		
@@ -684,7 +684,7 @@ public class Addactivedayshoursforlecturers {
 			}
 		});
 		btnNewButton_15_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15_2.setBackground(Color.decode("#3EB482"));
+		btnNewButton_15_2.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15_2.setBounds(204, 178, 193, 33);
 		panel_3.add(btnNewButton_15_2);
 		
