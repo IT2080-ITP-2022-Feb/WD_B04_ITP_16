@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -698,9 +699,10 @@ public JFrame frame;
 		txtTimetableGenerator.setHorizontalAlignment(SwingConstants.CENTER);
 		txtTimetableGenerator.setForeground(new Color(255, 255, 255));
 		txtTimetableGenerator.setBackground(Color.decode("#4660BD"));
-		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 38));
+		txtTimetableGenerator.setFont(new Font("Tahoma", Font.BOLD, 65));
 		txtTimetableGenerator.setText("ADD LECTURERS");
-		txtTimetableGenerator.setBounds(358, 55, 464, 72);
+		txtTimetableGenerator.setBounds(286, 57, 656, 72);
+		txtTimetableGenerator.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
 		frame.getContentPane().add(txtTimetableGenerator);
 		txtTimetableGenerator.setColumns(10);
 		

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -49,6 +50,7 @@ public class AddSubjects {
 	 */
 	PreparedStatement pst = null;
 	ResultSet rs = null;
+	private JTextField txtAddSubjects;
 	public static void main(String[] args) {
 		DBConnection.connect();
 		EventQueue.invokeLater(new Runnable() {
@@ -275,12 +277,18 @@ public class AddSubjects {
 		btnNewButton_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				ManageSubject manage = new ManageSubject();
+				manage.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_12.setBackground(Color.decode("#554B82"));
 		btnNewButton_12.setBounds(697, 9, 266, 58);
 		panel_2.add(btnNewButton_12);
+		
+		
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(null);
@@ -564,5 +572,16 @@ public class AddSubjects {
 		spinner_1_3.setBounds(211, 211, 217, 38);
 		spinner_1_3.setBackground(new Color(255, 255, 255));
 		panel_3.add(spinner_1_3);
+		
+		txtAddSubjects = new JTextField();
+		txtAddSubjects.setFont(new Font("Tahoma", Font.BOLD, 65));
+		txtAddSubjects.setForeground(Color.WHITE);
+		txtAddSubjects.setBackground(Color.decode("#4660BD"));
+		txtAddSubjects.setText("ADD SUBJECTS");
+		txtAddSubjects.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
+		txtAddSubjects.setBounds(492, 17, 507, 65);
+		frame.getContentPane().add(txtAddSubjects);
+		txtAddSubjects.setColumns(10);
+		
 	}
 }
