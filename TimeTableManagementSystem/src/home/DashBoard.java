@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,6 +15,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import lecturerManagement.ManageLecturers;
+import subjectManagement.AddSubjects;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -100,6 +105,7 @@ public class DashBoard {
 		Image Student=new ImageIcon(this.getClass().getResource("/Student Registration.png")).getImage();
 		
 		JButton btnNewButton_2 = new JButton("STUDENT MANAGEMENT");
+		btnNewButton_2.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -126,6 +132,11 @@ public class DashBoard {
 		JButton btnNewButton_3 = new JButton("SUBJECT MANAGEMENT");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				AddSubjects addsubject = new AddSubjects();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			
 			}
 		});

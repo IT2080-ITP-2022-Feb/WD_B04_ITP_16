@@ -65,6 +65,23 @@ public class ManageSubject {
 	 */
 	public ManageSubject() {
 		initialize();
+		refresh();
+	}
+	public void refresh() {
+		
+		Connection conn = DBConnection.connect();
+		
+		
+        try {
+        	String sql="Select * from SUbjects ";
+			pst=conn.prepareStatement(sql);
+			
+			rs=pst.executeQuery();
+			table.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	/**
@@ -274,22 +291,10 @@ public class ManageSubject {
 				
 
 				
+				refresh();
 				
 				
 				
-				Connection conn = DBConnection.connect();
-				
-				
-	            try {
-	            	String sql="Select * from SUbjects ";
-					pst=conn.prepareStatement(sql);
-					
-					rs=pst.executeQuery();
-					table.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 	            
 				
 				
@@ -298,7 +303,7 @@ public class ManageSubject {
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(Color.decode("#0593A2"));
+		btnNewButton_12.setBackground(Color.decode("#554B82"));
 		btnNewButton_12.setBounds(697, 9, 266, 58);
 		panel_2.add(btnNewButton_12);
 		
@@ -354,6 +359,7 @@ public class ManageSubject {
 				textField_1.setText(null);
 				comboBox.setSelectedItem(null);
 				comboBox_2.setSelectedItem(null);
+				refresh();
 				
 			}
 		});
@@ -409,7 +415,7 @@ public class ManageSubject {
 					q.printStackTrace();
 				}
 				
-	
+				refresh();
 				
 			}
 		});
@@ -575,6 +581,8 @@ public class ManageSubject {
 		spinner_3.setBounds(751, 462, 206, 38);
 		spinner_3.setBackground(new Color(255, 255, 255));
 		panel_3.add(spinner_3);
+		
+		
 		
 		
 	}
