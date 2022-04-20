@@ -345,31 +345,14 @@ public class AddSubjects {
 				
 				}
 				
-				else if(!(textField_1.getText().trim().matches("^[A-Z]{2}+[0-9]{3}+"))){
+				else if(!(textField_1.getText().trim().matches("^[A-Z]{2}+[0-9]{4}+"))){
 					JOptionPane.showMessageDialog(null, "Subject code should contain two upper case letters and three numbers");
 				
 				}else{
 					
 					Connection connec = DBConnection.connect();
 					
-					/*String checkID= "select Emp_ID from Lecturers";
-					PreparedStatement pstID = conn.prepareStatement(checkID);
-					rs=pstID.executeQuery();
-					while(rs.next()) {
-						String id = rs.getString("Emp_ID");
-					if(LecturerID.getText().equals(id)) {
-						System.out.println("The Lecturer id has already exist! Please choose a different id.");
-						JOptionPane.showMessageDialog(null, "The Lecturer id has already exist! Please choose a different id.");
-					}*/
-				
-				//String sq="SELECT Emp_ID from Lecturers";
-				//java.sql.Statement state = connec.createStatement();
-                //int x = state.executeUpdate(sq);
-                //if (x == 0) {
-                 //   JOptionPane.showMessageDialog(null, "This is alredy exist");
-                //}
-				//else {
-						
+					
 						
 						String offeredyear=comboBox.getSelectedItem().toString();
 						String offeredsem=comboBox_1_2.getSelectedItem().toString();
@@ -384,7 +367,7 @@ public class AddSubjects {
 			               //String value =spinner.getValue().toString();
 			               
 						String msg = "" + subjectname;
-		                msg += " \n";
+		                msg += "";
 		                
 		             //System.out.println(value);
 						
@@ -397,21 +380,7 @@ public class AddSubjects {
 
 	                    java.sql.Statement sta = con.createStatement();
 	                    int xx = sta.executeUpdate(query);
-	                    /*if (xx == 0) {
-	                        JOptionPane.showMessageDialog(null, "This is alredy exist");
-	                    } else {
-	                        JOptionPane.showMessageDialog(null,
-	                            "Welcome, " + msg + "Your account is sucessfully created");
-	                    }
-	                    String checkID= "select Emp_ID from Lecturers";
-						PreparedStatement pstID = conn.prepareStatement(checkID);
-						rs=pstID.executeQuery();
-						while(rs.next()) {
-							String id = rs.getString("Emp_ID");
-							if(LecturerID.getText().equals(id))
-							JOptionPane.showMessageDialog(null, "This is alredy exist");
-							
-						}*/
+	                  
 						
 	                    
 	                    
@@ -442,7 +411,7 @@ public class AddSubjects {
 				
 			catch(Exception w){
 				
-				
+				System.out.println(w);
 			}
 			
 			finally{
