@@ -16,7 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import consecutiveSession.NotAvailableTIme;
 import lecturerManagement.ManageLecturers;
+import sessions.AddSessions;
 import subjectManagement.AddSubjects;
 
 import java.awt.event.MouseAdapter;
@@ -186,7 +188,10 @@ public class DashBoard {
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				
+
+				AddSessions addsession = new AddSessions();
+				addsession.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setIcon(new ImageIcon(SessionMgt));
@@ -275,6 +280,10 @@ public class DashBoard {
 		btnNewButton_10_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+
+				NotAvailableTIme notavailabletime = new NotAvailableTIme();
+				notavailabletime.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_10_1.setFont(new Font("Calibri", Font.BOLD, 18));

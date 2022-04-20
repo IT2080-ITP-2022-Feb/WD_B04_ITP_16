@@ -27,6 +27,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 
 import connection.DBConnection;
+import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
 
@@ -60,7 +61,7 @@ private JFrame frame;
 				 
 				 while(rs.next()) {
 					 
-					 String name =rs.getString("sessionSign");
+					 String name =rs.getString("SID");
 					 comboBox.addItem(name);
 					 //comboBox_4_1.addItem(rs.getString("SubGroupID"));
 					 
@@ -90,7 +91,7 @@ private JFrame frame;
 				 
 				 while(rs.next()) {
 					 
-					 String name =rs.getString("sessionSignature");
+					 String name =rs.getString("SID");
 					 comboBox_1.addItem(name);
 					 //comboBox_4_1.addItem(rs.getString("SubGroupID"));
 					 
@@ -183,6 +184,9 @@ private JFrame frame;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -358,18 +362,8 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2_1_1.setBounds(239, 11, 230, 55);
+		btnNewButton_2_1_1.setBounds(357, 11, 230, 55);
 		panel_2.add(btnNewButton_2_1_1);
-		
-		JButton btnNewButton_2_1_2 = new JButton("Non Overlapping Sessions");
-		btnNewButton_2_1_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-			}
-		});
-		btnNewButton_2_1_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2_1_2.setBounds(468, 11, 266, 55);
-		panel_2.add(btnNewButton_2_1_2);
 		
 		JButton btnNewButton_2_1_3 = new JButton("Not Available Times");
 		btnNewButton_2_1_3.addActionListener(new ActionListener() {
