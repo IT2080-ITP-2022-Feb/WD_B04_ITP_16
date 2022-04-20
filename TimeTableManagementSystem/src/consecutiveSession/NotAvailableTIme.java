@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -30,6 +31,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.JTableHeader;
 
 import connection.DBConnection;
+import home.DashBoard;
+import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
 
 public class NotAvailableTIme {
@@ -285,8 +288,8 @@ public void refreshtable() {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.inactiveCaptionBorder);
-		frame.setBackground(Color.YELLOW);
+		frame.getContentPane().setBackground(Color.decode("#4660BD"));
+		frame.setBackground(Color.decode("#4660BD"));
 		frame.setResizable(false);
 		frame.setTitle("Time Table Management System");
 		frame.setSize(1350, 728);
@@ -300,7 +303,7 @@ public void refreshtable() {
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(261, 184, 1075, 478);
 		panel_3.setLayout(null);
-		panel_3.setBackground(new Color(230, 230, 250));
+		panel_3.setBackground(Color.decode("#4660BD"));
 		frame.getContentPane().add(panel_3);
 		
 		
@@ -312,26 +315,30 @@ public void refreshtable() {
 		
 		
 		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(null);
+		panel_4.setBackground(Color.decode("#4660BD"));
 		panel_4.setLayout(null);
 		panel_4.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_3.setBackground(new Color(204, 255, 102));
+		panel_3.setBackground(Color.decode("#4660BD"));
 		panel_4.setBounds(0, 0, 1073, 332);
 		panel_3.add(panel_4);
 		
 		JLabel lblSelectSessionId = new JLabel("Select Session ID");
+		lblSelectSessionId.setForeground(Color.WHITE);
 		lblSelectSessionId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblSelectSessionId.setBounds(28, 27, 113, 23);
 		panel_4.add(lblSelectSessionId);
 		
 		selectsession = new JComboBox();
 		selectsession.setFont(new Font("Tahoma", Font.BOLD, 13));
-		selectsession.setBounds(151, 27, 523, 22);
+		selectsession.setBounds(151, 27, 282, 22);
 		selectsession.setModel(new DefaultComboBoxModel(new String[] {""}));
 		panel_4.add(selectsession);
 		fillsession() ;
 		
 		//select lecture 
 		JLabel lblNewLabel_2 = new JLabel("Select Lecturer");
+		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_2.setBounds(28, 83, 91, 23);
 		panel_4.add(lblNewLabel_2);
@@ -346,6 +353,7 @@ public void refreshtable() {
 		
 		//select student group
 		JLabel lblSelectGroup = new JLabel("Select Group");
+		lblSelectGroup.setForeground(Color.WHITE);
 		lblSelectGroup.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblSelectGroup.setBounds(28, 136, 91, 23);
 		panel_4.add(lblSelectGroup);
@@ -359,6 +367,7 @@ public void refreshtable() {
 		fillgroups();
 		
 		JLabel lblSelectSubGroup = new JLabel("Select Sub Group");
+		lblSelectSubGroup.setForeground(Color.WHITE);
 		lblSelectSubGroup.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblSelectSubGroup.setBounds(28, 182, 113, 23);
 		panel_4.add(lblSelectSubGroup);
@@ -371,13 +380,15 @@ public void refreshtable() {
 		fillsubgroup();
 		
 		JLabel StartTime = new JLabel("Start Time");
+		StartTime.setForeground(Color.WHITE);
 		StartTime.setFont(new Font("Tahoma", Font.BOLD, 12));
-		StartTime.setBounds(502, 136, 91, 23);
+		StartTime.setBounds(494, 151, 91, 23);
 		panel_4.add(StartTime);
 		
 		JLabel EndTime = new JLabel("End Time");
+		EndTime.setForeground(Color.WHITE);
 		EndTime.setFont(new Font("Tahoma", Font.BOLD, 12));
-		EndTime.setBounds(502, 182, 57, 23);
+		EndTime.setBounds(494, 197, 57, 23);
 		panel_4.add(EndTime);
 		
 		
@@ -453,8 +464,15 @@ public void refreshtable() {
 		add.setForeground(Color.WHITE);
 		add.setFont(new Font("Tahoma", Font.BOLD, 14));
 		add.setEnabled(true);
-		add.setBackground(new Color(0, 153, 153));
+		add.setBackground(Color.decode("#103778"));
 		
+		
+		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
+		TimetableBtn.setForeground(Color.BLACK);
+		TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		TimetableBtn.setBackground(new Color(255, 122, 72));
+		TimetableBtn.setBounds(10, 10, 233, 72);
+		frame.getContentPane().add(TimetableBtn);
 		
 		//clear data from fields
 		JButton btnClear = new JButton("CLEAR");
@@ -463,20 +481,21 @@ public void refreshtable() {
 		btnClear.setForeground(Color.WHITE);
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnClear.setEnabled(true);
-		btnClear.setBackground(new Color(0, 153, 153));
+		btnClear.setBackground(Color.decode("#0593A2"));
 		
 		id = new JTextField();
-		id.setBackground(SystemColor.menu);
-		id.setBounds(0, 0, 86, 7);
+		id.setBackground(Color.decode("#4660BD"));
+		id.setBounds(911, 113, 86, 7);
+		id.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
 		panel_4.add(id);
-		
+	
 		//start time AM
 		starttime = new JSpinner();
 		String[] ampmString1 = {"am", "pm"};
 		starttime = new JSpinner(
 		 new SpinnerListModel(ampmString1));
 		starttime.setFont(new Font("Tahoma", Font.BOLD, 13));
-		starttime.setBounds(769, 136, 43, 23);
+		starttime.setBounds(761, 151, 43, 23);
 		panel_4.add(starttime);
 		
 		//End time AM
@@ -485,25 +504,26 @@ public void refreshtable() {
 		endtime = new JSpinner(
 		 new SpinnerListModel(ampmString1));
 		endtime.setFont(new Font("Tahoma", Font.BOLD, 13));
-		endtime.setBounds(769, 182, 43, 23);
+		endtime.setBounds(761, 197, 43, 23);
 		panel_4.add(endtime);
 		
 		start = new JTextField();
 		start.setFont(new Font("Tahoma", Font.BOLD, 13));
-		start.setBounds(666, 136, 91, 22);
+		start.setBounds(658, 151, 91, 22);
 		panel_4.add(start);
 		start.setColumns(10);
 		
 		end = new JTextField();
 		end.setFont(new Font("Tahoma", Font.BOLD, 13));
-		end.setBounds(666, 183, 91, 20);
+		end.setBounds(658, 198, 91, 20);
 		panel_4.add(end);
 		
 		
 		//Add date
 		JLabel date = new JLabel("Day");
+		date.setForeground(Color.WHITE);
 		date.setFont(new Font("Tahoma", Font.BOLD, 12));
-		date.setBounds(502, 87, 74, 14);
+		date.setBounds(494, 113, 74, 14);
 		panel_4.add(date);
 		
 		 day = new JSpinner();
@@ -511,24 +531,26 @@ public void refreshtable() {
 		day = new JSpinner(
 		new SpinnerListModel(dayString));
 		day.setFont(new Font("Tahoma", Font.BOLD, 13));
-		day.setBounds(663, 84, 149, 20);
+		day.setBounds(658, 110, 149, 20);
 		panel_4.add(day);
 		
 		
 		//Add session sign
 		JLabel session = new JLabel("Session Signature");
+		session.setForeground(Color.WHITE);
 		session.setFont(new Font("Tahoma", Font.BOLD, 12));
-		session.setBounds(363, 61, 113, 14);
+		session.setBounds(487, 31, 113, 14);
 		panel_4.add(session);
 		
 		sessionsign = new JComboBox();
 		sessionsign.setFont(new Font("Tahoma", Font.BOLD, 13));
 		sessionsign.setModel(new DefaultComboBoxModel(new String[] {""}));
-		sessionsign.setBounds(486, 59, 552, 20);
+		sessionsign.setBounds(633, 28, 409, 20);
 		panel_4.add(sessionsign);
 		fillsign();
 		
 		JLabel lblNewLabel = new JLabel("Select Room");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(28, 241, 113, 14);
 		panel_4.add(lblNewLabel);
@@ -776,66 +798,81 @@ public void refreshtable() {
 		btnrefresh.setBounds(892, 385, 141, 31);
 		panel_3.add(btnrefresh);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
-		panel.setBounds(10, 10, 1326, 68);
-		frame.getContentPane().add(panel);
-		
-		JLabel lblNewLabel_1 = new JLabel("TIMETABLE MANAGEMENT");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(Color.BLUE);
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblNewLabel_1.setBackground(Color.BLUE);
-		lblNewLabel_1.setBounds(501, 0, 329, 68);
-		panel.add(lblNewLabel_1);
-		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(51, 51, 102));
+		panel_1.setBackground(Color.white);
 		panel_1.setBounds(10, 88, 233, 584);
 		frame.getContentPane().add(panel_1);
 		
 		JButton btnNewButton = new JButton("Home");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
+			}
+		});
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton.setBackground(Color.CYAN);
+		btnNewButton.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton.setBounds(10, 10, 213, 38);
 		panel_1.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Lecturers");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				AddingLecturers addinglectures=new AddingLecturers();
+				addinglectures.main(null);
+				frame.setVisible(false);
+			}
+		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_1.setBackground(Color.CYAN);
+		btnNewButton_1.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_1.setBounds(10, 58, 213, 38);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Student Groups");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2.setBackground(Color.CYAN);
-		btnNewButton_2.setBounds(10, 106, 213, 38);
+		btnNewButton_2.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_2.setBounds(10, 106, 213, 38);//coom
 		panel_1.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Subjects");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			;
+			}
+		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_3.setBackground(Color.CYAN);
+		btnNewButton_3.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_3.setBounds(10, 154, 213, 38);
 		panel_1.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-
+				
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_4.setBackground(Color.CYAN);
+		btnNewButton_4.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_4.setBounds(10, 202, 213, 38);
 		panel_1.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Sessions");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_5.setBackground(Color.CYAN);
+		btnNewButton_5.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_5.setBounds(10, 250, 213, 38);
 		panel_1.add(btnNewButton_5);
 		
@@ -846,58 +883,70 @@ public void refreshtable() {
 			}
 		});
 		btnNewButton_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_6.setBackground(Color.CYAN);
+		btnNewButton_6.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_6.setBounds(10, 298, 213, 38);
 		panel_1.add(btnNewButton_6);
 		
 		JButton btnNewButton_7 = new JButton("Tags");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_7.setBackground(Color.CYAN);
+		btnNewButton_7.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_7.setBounds(10, 346, 213, 38);
 		panel_1.add(btnNewButton_7);
 		
 		JButton btnNewButton_8_1 = new JButton("Session Types");
+		btnNewButton_8_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8_1.setBackground(Color.CYAN);
+		btnNewButton_8_1.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_8_1.setBounds(10, 394, 213, 38);
 		panel_1.add(btnNewButton_8_1);
 		
 		JButton btnNewButton_8 = new JButton("Session Rooms");
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+		
+
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8.setBackground(Color.CYAN);
+		btnNewButton_8.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_8.setBounds(10, 442, 213, 38);
 		panel_1.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("Generate Timetables");
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
+
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_9.setBackground(Color.CYAN);
+		btnNewButton_9.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_9.setBounds(10, 490, 213, 38);
 		panel_1.add(btnNewButton_9);
 		
 		JButton btnNewButton_10_1 = new JButton("Statistics");
 		btnNewButton_10_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
 			}
 		});
 		btnNewButton_10_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_10_1.setBackground(Color.CYAN);
+		btnNewButton_10_1.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(51, 51, 153));
+		panel_2.setBackground(Color.decode("#4660BD"));
 		panel_2.setBounds(263, 88, 1073, 76);
 		frame.getContentPane().add(panel_2);
 		
@@ -910,17 +959,11 @@ public void refreshtable() {
 		
 		//parallel sessions button
 		JButton btnNewButton_2_1_1 = new JButton("Parallel Sessions");
-		btnNewButton_2_1_1.setBounds(292, 10, 230, 56);
+		btnNewButton_2_1_1.setBounds(397, 10, 230, 56);
 		panel_2.add(btnNewButton_2_1_1);
 		btnNewButton_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		//non overlapping session button
-		JButton btnNewButton_2_1_2 = new JButton("Non Overlapping Sessions");
-		btnNewButton_2_1_2.setBounds(584, 10, 230, 56);
-		panel_2.add(btnNewButton_2_1_2);
-		btnNewButton_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		JButton button = new JButton("Not available time");
-		button.setBounds(858, 10, 205, 56);
+		button.setBounds(766, 10, 205, 56);
 		panel_2.add(button);
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
 		button.addActionListener(new ActionListener() {
@@ -929,14 +972,6 @@ public void refreshtable() {
 			
 				
 				
-			}
-		});
-		btnNewButton_2_1_2.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				AddNotOverlapSession addnotoverlapsession=new AddNotOverlapSession();
-				addnotoverlapsession.main(null);
-				frame.setVisible(false);
 			}
 		});
 		btnNewButton_2_1_1.addActionListener(new ActionListener() {

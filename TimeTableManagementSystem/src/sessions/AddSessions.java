@@ -23,6 +23,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
 import connection.DBConnection;
+import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 
 
@@ -232,7 +233,9 @@ public class AddSessions {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -650,14 +653,13 @@ public class AddSessions {
 		panel_3.add(btnNewButton_14);
 		
 	    comboBoxLec1 = new JComboBox();
-	    comboBoxLec1.setModel(new DefaultComboBoxModel(new String[] {"----------Select Lecturer-----------"}));
+	    comboBoxLec1.setModel(new DefaultComboBoxModel(new String[] {"----------Select Lecturer------"}));
 	    comboBoxLec1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	    comboBoxLec1.setBackground(new Color(255, 255, 255));
 		comboBoxLec1.setBounds(289, 36, 268, 36);
 		panel_3.add(comboBoxLec1);
 		
 		 comboBox_1 = new JComboBox();
-		 comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"----------Select Lecturer-----------"}));
 		 comboBox_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_1.setBackground(new Color(255, 255, 255));
 		comboBox_1.setBounds(289, 97, 268, 36);
@@ -665,13 +667,11 @@ public class AddSessions {
 		
 		 comboBox_2 = new JComboBox();
 		 comboBox_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		 comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"----Select Tag----"}));
 		 comboBox_2.setBackground(Color.WHITE);
 		comboBox_2.setBounds(790, 97, 225, 36);
 		panel_3.add(comboBox_2);
 		
 		 comboBox_3 = new JComboBox();
-		 comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"----Select Student Group----"}));
 		 comboBox_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_3.setBackground(Color.WHITE);
 		comboBox_3.setBounds(289, 159, 268, 36);

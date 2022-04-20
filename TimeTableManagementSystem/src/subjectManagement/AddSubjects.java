@@ -103,7 +103,9 @@ public class AddSubjects {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);

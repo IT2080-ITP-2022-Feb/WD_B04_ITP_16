@@ -28,6 +28,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import connection.DBConnection;
+import home.DashBoard;
+
 import javax.swing.JTextPane;
 import javax.swing.JTable;
 import javax.swing.JEditorPane;
@@ -163,7 +165,9 @@ public JFrame frame;
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -301,7 +305,7 @@ public JFrame frame;
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(null);
 		panel_3.setBackground(Color.decode("#4660BD"));
-		panel_3.setBounds(253, 174, 1045, 529);
+		panel_3.setBounds(253, 174, 1043, 529);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		

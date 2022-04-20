@@ -28,6 +28,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import connection.DBConnection;
+import consecutiveSession.NotAvailableTIme;
+import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
 
@@ -267,7 +269,9 @@ public class ManageSessions {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -360,6 +364,9 @@ public class ManageSessions {
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				NotAvailableTIme not = new NotAvailableTIme();
+				not.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -528,7 +535,7 @@ public class ManageSessions {
 				///////////
 			}
 		});
-		btnNewButton_13.setBounds(816, 10, 127, 39);
+		btnNewButton_13.setBounds(661, 12, 127, 39);
 		panel_5.add(btnNewButton_13);
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_13.setBackground(Color.decode("#103778"));
@@ -536,7 +543,7 @@ public class ManageSessions {
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"----------Select Tag-------------"}));
-		comboBox.setBounds(341, 12, 339, 39);
+		comboBox.setBounds(341, 12, 270, 39);
 		panel_5.add(comboBox);
 		comboBox.setBackground(Color.WHITE);
 		
@@ -777,7 +784,6 @@ public class ManageSessions {
 		panel_5.add(lblNewLabel_2);
 		
 		 comboBoxLec1 = new JComboBox();
-		 comboBoxLec1.setModel(new DefaultComboBoxModel(new String[] {"-Select Lecturer-"}));
 		 comboBoxLec1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBoxLec1.setBackground(Color.WHITE);
 		comboBoxLec1.setBounds(172, 272, 168, 36);
@@ -790,7 +796,6 @@ public class ManageSessions {
 		panel_5.add(lblNewLabel_3);
 		
 		 comboBox_1 = new JComboBox();
-		 comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"-Select Lecturer-"}));
 		 comboBox_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_1.setBackground(Color.WHITE);
 		comboBox_1.setBounds(172, 330, 168, 36);
@@ -804,7 +809,6 @@ public class ManageSessions {
 		
 		 comboBox_2 = new JComboBox();
 		 comboBox_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		 comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"---Select Tag---"}));
 		 comboBox_2.setBackground(Color.WHITE);
 		comboBox_2.setBounds(172, 383, 168, 36);
 		panel_5.add(comboBox_2);
@@ -816,7 +820,6 @@ public class ManageSessions {
 		panel_5.add(lblNewLabel_5);
 		
 		 comboBox_3 = new JComboBox();
-		 comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"--Select Group--"}));
 		 comboBox_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_3.setBackground(Color.WHITE);
 		comboBox_3.setBounds(172, 437, 168, 36);
@@ -864,7 +867,7 @@ public class ManageSessions {
 		panel_5.add(lblNewLabel_11);
 		
 		 comboBoxLec1_1 = new JComboBox();
-		 comboBoxLec1_1.setModel(new DefaultComboBoxModel(new String[] {"--Select Lecturer--"}));
+		 comboBoxLec1_1.setModel(new DefaultComboBoxModel(new String[] {"----------Select Lecturer-------"}));
 		 comboBoxLec1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBoxLec1_1.setBackground(Color.WHITE);
 		comboBoxLec1_1.setBounds(10, 10, 299, 39);
