@@ -13,11 +13,12 @@ public class DBConnection {
 			try {
 				// String url = "jdbc:sqlite:C:\\Users\\ASUS\\Desktop\\Timetable.db";  
 				 
-				 String urls = "jdbc:sqlite:C:\\Users\\ASUS\\git\\WD_B04_ITP_16\\TimeTableManagementSystem\\Timetable.db";  
+				// String urls = "jdbc:sqlite:C:\\Users\\ASUS\\git\\WD_B04_ITP_16\\TimeTableManagementSystem\\Timetable.db";  
+				 
+				 String url = "jdbc:sqlite:Time.db";  
 				
-
 //				Class.forName("org.sqlite.JDBC");
-				conn = DriverManager.getConnection(urls);
+				conn = DriverManager.getConnection(url);
 				System.out.println("Connected");
 			}
 			catch(Exception e) {
