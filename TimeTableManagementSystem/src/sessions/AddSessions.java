@@ -660,6 +660,7 @@ public class AddSessions {
 		panel_3.add(comboBoxLec1);
 		
 		 comboBox_1 = new JComboBox();
+		 comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"--------Select Lecturer---------"}));
 		 comboBox_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_1.setBackground(new Color(255, 255, 255));
 		comboBox_1.setBounds(289, 97, 268, 36);

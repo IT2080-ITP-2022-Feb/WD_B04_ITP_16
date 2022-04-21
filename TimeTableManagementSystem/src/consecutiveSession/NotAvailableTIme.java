@@ -952,6 +952,7 @@ public void refreshtable() {
 		
 		//conseccutive sessions button
 		JButton btnNewButton_2_1 = new JButton("Conseccutive Sessions");
+		btnNewButton_2_1.setBackground(Color.WHITE);
 		btnNewButton_2_1.setBounds(10, 10, 212, 56);
 		panel_2.add(btnNewButton_2_1);
 		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -959,10 +960,12 @@ public void refreshtable() {
 		
 		//parallel sessions button
 		JButton btnNewButton_2_1_1 = new JButton("Parallel Sessions");
+		btnNewButton_2_1_1.setBackground(Color.WHITE);
 		btnNewButton_2_1_1.setBounds(397, 10, 230, 56);
 		panel_2.add(btnNewButton_2_1_1);
 		btnNewButton_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		JButton button = new JButton("Not available time");
+		button.setBackground(Color.WHITE);
 		button.setBounds(766, 10, 205, 56);
 		panel_2.add(button);
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
