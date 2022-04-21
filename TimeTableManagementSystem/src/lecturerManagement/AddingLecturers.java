@@ -90,7 +90,7 @@ public JFrame frame;
 	public String generateID() {
 		ArrayList<String> arrayList = new ArrayList<String>();
 		String name = "Lec000";
-		int rand = (int) (Math.random()*10);
+		int rand = (int) (Math.random()*20);
 		
 		String id=name+ rand;
 		
