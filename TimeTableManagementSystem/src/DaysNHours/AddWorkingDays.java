@@ -25,16 +25,15 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
+import connection.DBConnection;
 
 import javax.swing.JCheckBox;
+import java.awt.SystemColor;
 
 
 
 
 public class AddWorkingDays {
-
-	private static final String DBConnection = null;
-
 
 	/**
 	 * @param args
@@ -51,14 +50,11 @@ public class AddWorkingDays {
 	
 	static int no;
 	static int noid;
-	/**
-	 * Launch the application.
-	 */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		connection.DBConnection.connect();
+		DBConnection.connect();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -76,7 +72,7 @@ public class AddWorkingDays {
 	 * Create the application.
 	 */
 	public AddWorkingDays() {
-		initialize ();
+		initialize();
 		setID();
 	}
 
@@ -114,163 +110,181 @@ public class AddWorkingDays {
 	}
 	private void initialize() {
 		frame = new JFrame();
-		//frame.setBackground(new Color("#4660BD"));
+		frame.setBackground(new Color(51,0,0));
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);;
+		frame.getContentPane().setBackground(SystemColor.text);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		
-		panel_1.setForeground(Color.WHITE);
+		panel_1.setForeground(new Color(0, 0, 0));
 		panel_1.setLayout(null);
-		
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
-	
-	JButton btnNewButton = new JButton("Home");
+		
+		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(10, 10, 213, 38);
 		panel_1.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Lecturers");
+		btnNewButton_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_1.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setBounds(10, 58, 213, 38);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Student Groups");
+		btnNewButton_2.setForeground(new Color(0, 0, 0));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2.setBackground(Color.decode("#FFFEFE"));
-		btnNewButton_2.setBounds(10, 106, 213, 38);//coom
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
+		btnNewButton_2.setBounds(10, 106, 213, 38);
 		panel_1.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Subjects");
+		btnNewButton_3.setForeground(new Color(0, 0, 0));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			;
+
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_3.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBounds(10, 154, 213, 38);
 		panel_1.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
+		btnNewButton_4.setForeground(new Color(0, 0, 0));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+			AddWorkingDays AddWorkingDays=new AddWorkingDays();
+			AddWorkingDays.main(null);
+				frame.setVisible(false);
+
 			}
 		});
+
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_4.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_4.setBackground(new Color(255, 255, 255));
 		btnNewButton_4.setBounds(10, 202, 213, 38);
 		panel_1.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Sessions");
+		btnNewButton_5.setForeground(new Color(0, 0, 0));
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+			
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_5.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_5.setBackground(new Color(255, 255, 255));
 		btnNewButton_5.setBounds(10, 250, 213, 38);
 		panel_1.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Locations");
+		btnNewButton_6.setForeground(new Color(0, 0, 0));
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
+				
 			}
 		});
 		btnNewButton_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_6.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_6.setBackground(new Color(255, 255, 255));
 		btnNewButton_6.setBounds(10, 298, 213, 38);
 		panel_1.add(btnNewButton_6);
 		
 		JButton btnNewButton_7 = new JButton("Tags");
+		btnNewButton_7.setForeground(new Color(0, 0, 0));
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_7.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_7.setBackground(new Color(255, 255, 255));
 		btnNewButton_7.setBounds(10, 346, 213, 38);
 		panel_1.add(btnNewButton_7);
 		
 		JButton btnNewButton_8_1 = new JButton("Session Types");
+		btnNewButton_8_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+			
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8_1.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_8_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_8_1.setBounds(10, 394, 213, 38);
 		panel_1.add(btnNewButton_8_1);
 		
 		JButton btnNewButton_8 = new JButton("Session Rooms");
+		btnNewButton_8.setForeground(new Color(0, 0, 0));
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
-
+				
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_8.setBackground(new Color(255, 255, 255));
 		btnNewButton_8.setBounds(10, 442, 213, 38);
 		panel_1.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("Generate Timetables");
+		btnNewButton_9.setForeground(new Color(0, 0, 0));
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_9.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_9.setBackground(new Color(255, 255, 255));
 		btnNewButton_9.setBounds(10, 490, 213, 38);
 		panel_1.add(btnNewButton_9);
 		
 		JButton btnNewButton_10_1 = new JButton("Statistics");
+		btnNewButton_10_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_10_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
 		btnNewButton_10_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_10_1.setBackground(Color.decode("#FFFEFE"));
+		btnNewButton_10_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
+		
 		JPanel panel = new JPanel();
+		panel.setForeground(new Color(255, 255, 255));
 		panel.setLayout(null);
-		panel.setBackground(new Color(0, 0, 128));
-		panel.setBounds(10, 0, 1216, 68);
+		panel.setBackground(new Color(255, 140, 0));
+		panel.setBounds(10, 10, 1216, 68);
 		frame.getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLUE);
+		lblNewLabel.setForeground(SystemColor.text);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblNewLabel.setBackground(Color.BLUE);
 		lblNewLabel.setBounds(430, 0, 329, 68);
@@ -279,7 +293,7 @@ public class AddWorkingDays {
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBackground(new Color(51, 51, 102));
-		panel_2.setBounds(253, 88, 973, 76);
+		panel_2.setBounds(241, 88, 985, 76);
 		frame.getContentPane().add(panel_2);
 		
 		JButton btnNewButton_11 = new JButton("Refresh");
@@ -290,13 +304,14 @@ public class AddWorkingDays {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_11.setForeground(Color.BLACK);
+		btnNewButton_11.setForeground(new Color(255, 255, 255));
 		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11.setBackground(new Color(204, 255, 255));
+		btnNewButton_11.setBackground(Color.BLUE);
 		btnNewButton_11.setBounds(10, 10, 266, 56);
 		panel_2.add(btnNewButton_11);
 		
 		JButton btnNewButton_12 = new JButton("Manage Working Days");
+		btnNewButton_12.setForeground(new Color(255, 255, 255));
 		btnNewButton_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ManageWorkingDays manageWorkingDays=new ManageWorkingDays();
@@ -305,22 +320,22 @@ public class AddWorkingDays {
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(Color.decode("#151F30"));
+		btnNewButton_12.setBackground(Color.BLACK);
 		btnNewButton_12.setBounds(697, 9, 266, 58);
 		panel_2.add(btnNewButton_12);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setForeground(new Color(255, 255, 255));
-		panel_3.setBounds(253, 174, 973, 529);
+		panel_3.setBounds(241, 164, 985, 539);
 		frame.getContentPane().add(panel_3);
-		panel_3.setBackground(new Color(25, 25, 112));
+		panel_3.setBackground(SystemColor.textHighlight);
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("No of Working Days");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_1.setBackground(new Color(148, 0, 211));
-		lblNewLabel_1.setBounds(10, 30, 230, 50);
+		lblNewLabel_1.setBounds(10, 24, 230, 50);
 		panel_3.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Working Days");
@@ -337,36 +352,50 @@ public class AddWorkingDays {
 		panel_3.add(noDays);
 		
 		JCheckBox chckbxMonday = new JCheckBox("Monday");
+		chckbxMonday.setBackground(new Color(255, 165, 0));
+		chckbxMonday.setForeground(new Color(255, 255, 255));
 		chckbxMonday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxMonday.setBounds(225, 102, 105, 29);
 		panel_3.add(chckbxMonday);
 		
 		JCheckBox chckbxTuesday = new JCheckBox("Tuesday");
+		chckbxTuesday.setBackground(new Color(255, 165, 0));
+		chckbxTuesday.setForeground(new Color(255, 255, 255));
 		chckbxTuesday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxTuesday.setBounds(225, 142, 105, 29);
 		panel_3.add(chckbxTuesday);
 		
-		JCheckBox chckbxWednesday = new JCheckBox("wednesday");
+		JCheckBox chckbxWednesday = new JCheckBox("Wednesday");
+		chckbxWednesday.setBackground(new Color(255, 165, 0));
+		chckbxWednesday.setForeground(new Color(255, 255, 255));
 		chckbxWednesday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxWednesday.setBounds(225, 182, 105, 29);
 		panel_3.add(chckbxWednesday);
 		
 		JCheckBox chckbxThursday = new JCheckBox("Thursday");
+		chckbxThursday.setBackground(new Color(255, 165, 0));
+		chckbxThursday.setForeground(new Color(255, 255, 255));
 		chckbxThursday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxThursday.setBounds(225, 222, 105, 29);
 		panel_3.add(chckbxThursday);
 		
 		JCheckBox chckbxFriday = new JCheckBox("Friday");
+		chckbxFriday.setBackground(new Color(255, 165, 0));
+		chckbxFriday.setForeground(new Color(255, 255, 255));
 		chckbxFriday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxFriday.setBounds(225, 264, 105, 29);
 		panel_3.add(chckbxFriday);
 		
 		JCheckBox chckbxSaturday = new JCheckBox("Saturday");
+		chckbxSaturday.setBackground(new Color(255, 165, 0));
+		chckbxSaturday.setForeground(new Color(255, 255, 255));
 		chckbxSaturday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxSaturday.setBounds(375, 102, 105, 29);
 		panel_3.add(chckbxSaturday);
 		
 		JCheckBox chckbxSunday = new JCheckBox("Sunday");
+		chckbxSunday.setBackground(new Color(255, 165, 0));
+		chckbxSunday.setForeground(new Color(255, 255, 255));
 		chckbxSunday.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		chckbxSunday.setBounds(375, 142, 105, 29);
 		panel_3.add(chckbxSunday);
@@ -392,7 +421,7 @@ public class AddWorkingDays {
 		JLabel lblHours = new JLabel("Hours");
 		lblHours.setForeground(new Color(255, 255, 255));
 		lblHours.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblHours.setBounds(355, 320, 85, 34);
+		lblHours.setBounds(340, 321, 85, 34);
 		panel_3.add(lblHours);
 		
 		JLabel lblMinute = new JLabel("Minute");
@@ -403,6 +432,7 @@ public class AddWorkingDays {
 		
 		
 		JButton btnNewButton_14 = new JButton("Clear");
+		btnNewButton_14.setForeground(new Color(255, 255, 255));
 		btnNewButton_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -421,11 +451,12 @@ public class AddWorkingDays {
 			}
 		});
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_14.setBackground(Color.CYAN);
+		btnNewButton_14.setBackground(new Color(105, 105, 105));
 		btnNewButton_14.setBounds(205, 426, 157, 41);
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_15 = new JButton("Save");
+		btnNewButton_15.setForeground(new Color(255, 255, 255));
 		btnNewButton_15.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
@@ -484,12 +515,12 @@ public class AddWorkingDays {
 				
 				else {
 					try {
-						connection.DBConnection.connect();
+					 Connection con = DBConnection.connect();
 
 	                    String query = "INSERT INTO WorkingDays values(null, '" + NoOfWorkingDays + "','" + monday + "','" + tuesday + "','" +
 	                    		wednesday + "','" + thursday + "','" + friday + "','"+ saturday +"','"+ sunday +"','"+ hours +"','"+ minutes +"')";
 
-	                    Statement sta = conn.createStatement();
+	                    Statement sta = con.createStatement();
 	                    int x = sta.executeUpdate(query);
 	                    if (x == 0) 
 	                    {
@@ -503,7 +534,7 @@ public class AddWorkingDays {
 	    					label.setHorizontalAlignment(SwingConstants.CENTER);
 	    					JOptionPane.showMessageDialog(null, label);
 	                    } 
-	                    conn.close();
+	                    con.close();
 	                }
 					catch (Exception exception) 
 					{
@@ -517,7 +548,7 @@ public class AddWorkingDays {
 			
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15.setBackground(Color.decode("#0593A2"));
+		btnNewButton_15.setBackground(new Color(0, 250, 154));
 		btnNewButton_15.setBounds(594, 426, 157, 41);
 		panel_3.add(btnNewButton_15);
 		
