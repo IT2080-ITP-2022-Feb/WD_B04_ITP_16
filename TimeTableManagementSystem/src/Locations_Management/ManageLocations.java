@@ -47,7 +47,7 @@ public class ManageLocations {
 	private JTextField textField_3;
 
 	/**
-	 * Launch the application.sss
+	 * Launch  the application.sss
 	 * 
 	 * 
 	 */
