@@ -44,7 +44,7 @@ import net.proteanit.sql.DbUtils;
 public class ManageTags {
 
 	/**
-	 * @param args
+	 * @params args
 	 */
 private JFrame frame;
 

@@ -37,7 +37,7 @@ import lecturerManagement.AddingLecturers;
 public class AddTags {
 
 	/**
-	 * @param args
+	 * @param s args
 	 */
 	
 private JFrame frame;
