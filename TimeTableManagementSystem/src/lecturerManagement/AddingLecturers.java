@@ -81,7 +81,7 @@ private JFrame frame;
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the scontents of the frame.
 	 */
 	public void getlecIDS() {
 		Connection conn = DBConnection.connect();
