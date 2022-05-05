@@ -37,7 +37,7 @@ public class AddLocations {
 	private JTextField RoomName;
 	private JTextField Capacity;
 	/**
-	 * Launch the afpplication.ss
+	 * Launch the afpzxplication.ss
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
