@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>WD_B04_ITP_16s</name>
+=======
+	<name>WD_B04_ITP_16</name>
+>>>>>>> refs/heads/main
 	<comment></comment>
 	<projects>
 	</projects>

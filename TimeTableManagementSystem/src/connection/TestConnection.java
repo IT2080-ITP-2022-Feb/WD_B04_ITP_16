@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import home.DashBoard;
+
 
 public class TestConnection {
 	
@@ -13,7 +15,7 @@ public class TestConnection {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-		connection = DBConnection.connect();
+	
 		
 
 		

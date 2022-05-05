@@ -111,7 +111,7 @@ public class Addactivedayshoursforlecturers {
 		frame.getContentPane().setLayout(null);
 		frame.setUndecorated(true);
 		frame.setTitle("Time Table Management System");
-		Instruct();
+		//Instruct();
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(null);
@@ -333,12 +333,13 @@ public class Addactivedayshoursforlecturers {
 		JLabel lblNewLabel_9 = new JLabel("Active days and hours");
 		lblNewLabel_9.setForeground(new Color(240, 248, 255));
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_9.setBackground(new Color(240, 248, 255));
+		lblNewLabel_9.setBackground(Color.decode("#0593A2"));
 		lblNewLabel_9.setBounds(84, 24, 190, 24);
 		panel_3_1.add(lblNewLabel_9);
 		
 		
 		JButton btnNewButton_15 = new JButton("Save");
+		btnNewButton_15.setForeground(Color.WHITE);
 		btnNewButton_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -640,13 +641,13 @@ public class Addactivedayshoursforlecturers {
 					}
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15.setBackground(new Color(0, 0, 255));
+		btnNewButton_15.setBackground(Color.decode("#103778"));
 		btnNewButton_15.setBounds(204, 343, 193, 41);
 		panel_3.add(btnNewButton_15);
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("Lecturer ID");
-		lblNewLabel_2.setForeground(new Color(0, 51, 102));
+		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblNewLabel_2.setBounds(251, 51, 149, 41);
 		panel_3.add(lblNewLabel_2);
@@ -658,13 +659,14 @@ public class Addactivedayshoursforlecturers {
 		panel_3.add(comboBox);
 		
 		JButton btnNewButton_15_1 = new JButton("Close");
+		btnNewButton_15_1.setForeground(Color.WHITE);
 		btnNewButton_15_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 			}
 		});
 		btnNewButton_15_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15_1.setBackground(new Color(255, 0, 0));
+		btnNewButton_15_1.setBackground(Color.decode("#F21D2F"));
 		btnNewButton_15_1.setBounds(814, 10, 149, 41);
 		panel_3.add(btnNewButton_15_1);
 		
@@ -682,7 +684,7 @@ public class Addactivedayshoursforlecturers {
 			}
 		});
 		btnNewButton_15_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15_2.setBackground(Color.CYAN);
+		btnNewButton_15_2.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15_2.setBounds(204, 178, 193, 33);
 		panel_3.add(btnNewButton_15_2);
 		

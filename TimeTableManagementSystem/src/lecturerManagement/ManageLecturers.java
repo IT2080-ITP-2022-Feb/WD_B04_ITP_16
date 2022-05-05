@@ -3,6 +3,7 @@ package lecturerManagement;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64.Decoder;
 
+import javax.security.auth.Refreshable;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,8 +29,9 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 import net.proteanit.sql.DbUtils;
-
+import subjectManagement.AddSubjects;
 import connection.DBConnection;
+import home.DashBoard;
 
 
 
@@ -38,9 +41,10 @@ public class ManageLecturers {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField Rank;
 	private JTable table;
 	private JTable table_1;
+	
 
 	private JComboBox comboBoxFacultyName,comboBoxDepName,comboBoxBuildingName,comboBoxCenterInput,comboBoxLevel;
 	/**
@@ -67,6 +71,7 @@ public class ManageLecturers {
 	 */
 	public ManageLecturers() {
 		initialize();
+		Refresh();
 	}
 
 	/**
@@ -90,7 +95,9 @@ public class ManageLecturers {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -127,8 +134,10 @@ public class ManageLecturers {
 		JButton btnNewButton_3 = new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				
+				AddSubjects add = new AddSubjects();
+				add.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -231,6 +240,7 @@ public class ManageLecturers {
 		panel_1.add(btnNewButton_10_1);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(null);
 		panel_3.setLayout(null);
 		panel_3.setBackground(Color.decode("#4660BD"));
 		panel_3.setBounds(253, 177, 1277, 526);
@@ -256,33 +266,57 @@ public class ManageLecturers {
 				/*if(comboBoxLevel.getSelectedItem().toString().matches(p)) {
 					getRank=1;
 				}*/
-				int i=0;
+				String i= "000";
 				if(getRank.contains(p)) {
-				 i=1;
+					i = "001";
+					//String combination=getRank.substring(0,3);
 					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+				 
 				}
 				if(getRank.contains(A)) {
-					i=2;
+					i = "002";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+					
 				}
 				if(getRank.contains(S)) {
-					i=3;
+					i = "003";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Se)) {
-					i=4;
+					i = "004";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Lec)) {
-					i=5;
+					i = "005";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(AL)) {
-					i=6;
+					i = "006";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
-				String combination=i+"."+getID;
 				
 				
 				
 				
 				try {
-					if(textField_2.getText().equals("")||textField.getText().equals("")||textField_1.getText().equals("")||comboBoxFacultyName.getSelectedItem().equals("")||comboBoxDepName.getSelectedItem().equals("")||comboBoxBuildingName.getSelectedItem().equals("")||comboBoxLevel.getSelectedItem().equals("")||comboBoxCenterInput.getSelectedItem().equals("")){
+					if(Rank.getText().equals("")||textField.getText().equals("")||textField_1.getText().equals("")||comboBoxFacultyName.getSelectedItem().equals("")||comboBoxDepName.getSelectedItem().equals("")||comboBoxBuildingName.getSelectedItem().equals("")||comboBoxLevel.getSelectedItem().equals("")||comboBoxCenterInput.getSelectedItem().equals("")){
 						JOptionPane.showMessageDialog(null, "Please fill the form and press generate button to generate the rank");
 					}else if(comboBoxFacultyName.getSelectedItem().toString().equals("Computing") && comboBoxDepName.getSelectedItem().toString().equals("Electrical")){
 						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
@@ -296,11 +330,6 @@ public class ManageLecturers {
 						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
 					}else if(comboBoxFacultyName.getSelectedItem().toString().equals("Engineering") && comboBoxDepName.getSelectedItem().toString().equals("DS")){
 						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(!(combination.equals(textField_2.getText().toString()))) {
-						
-						
-						
-						JOptionPane.showMessageDialog(null, "Please Generate The Rank Again");
 					
 					
 					
@@ -309,10 +338,11 @@ public class ManageLecturers {
 					else {
 					Connection con = DBConnection.connect();
 					
-					String query="Update Lecturers set LecturerName='"+textField.getText()+"',Faculty='"+comboBoxFacultyName.getSelectedItem().toString()+"',Department='"+comboBoxDepName.getSelectedItem().toString()+"',Building='"+comboBoxBuildingName.getSelectedItem().toString()+"',Level='"+comboBoxLevel.getSelectedItem().toString()+"',Rank='"+textField_2.getText()+"' where Emp_ID='"+textField_1.getText()+"' ";
+					String query="Update Lecturers set LecturerName='"+textField.getText()+"',Faculty='"+comboBoxFacultyName.getSelectedItem().toString()+"',Department='"+comboBoxDepName.getSelectedItem().toString()+"',Building='"+comboBoxBuildingName.getSelectedItem().toString()+"',Level='"+comboBoxLevel.getSelectedItem().toString()+"',Rank='"+Rank.getText()+"' where Emp_ID='"+textField_1.getText()+"' ";
 					PreparedStatement pst=con.prepareStatement(query);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Data Updated");
+					Refresh();
 					pst.close();
 					}
 					
@@ -325,7 +355,7 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_13.setBackground(Color.decode("#3EB482"));
+		btnNewButton_13.setBackground(Color.decode("#0593A2"));
 		btnNewButton_13.setBounds(885, 303, 235, 40);
 		panel_3.add(btnNewButton_13);
 		
@@ -341,7 +371,7 @@ public class ManageLecturers {
 				comboBoxBuildingName.setSelectedItem(null);
 				comboBoxCenterInput.setSelectedItem(null);
 				comboBoxLevel.setSelectedItem(null);
-				textField_2.setText(null);
+				Rank.setText(null);
 				
 			}
 		});
@@ -368,6 +398,7 @@ public class ManageLecturers {
 					PreparedStatement pst=con.prepareStatement(query);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Deleted");
+					Refresh();
 					pst.close();
 					}
 					
@@ -383,14 +414,14 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_15.setBackground(new Color(255, 0, 0));
+		btnNewButton_15.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15.setBounds(885, 403, 235, 40);
 		panel_3.add(btnNewButton_15);
 		
 		JLabel lblNewLabel_1 = new JLabel("Lecturer Name");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_1.setBackground(Color.decode("#FA1B1B"));
+		lblNewLabel_1.setBackground(Color.decode("#0593A2"));
 		lblNewLabel_1.setBounds(24, 290, 132, 29);
 		panel_3.add(lblNewLabel_1);
 		
@@ -487,18 +518,18 @@ public class ManageLecturers {
 		lblNewLabel_8.setBounds(486, 345, 65, 31);
 		panel_3.add(lblNewLabel_8);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		textField_2.setEditable(false);
-		textField_2.setColumns(10);
-		textField_2.setBackground(new Color(255, 255, 255));
-		textField_2.setBounds(583, 345, 236, 31);
-		panel_3.add(textField_2);
+		Rank = new JTextField();
+		Rank.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		Rank.setEditable(false);
+		Rank.setColumns(10);
+		Rank.setBackground(new Color(255, 255, 255));
+		Rank.setBounds(583, 345, 236, 31);
+		panel_3.add(Rank);
 		
 	
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 1257, 233);
+		scrollPane.setBounds(10, 10, 1225, 233);
 		panel_3.add(scrollPane);
 		
 		table_1 = new JTable();
@@ -583,33 +614,47 @@ public class ManageLecturers {
 				String AL="Assistant Lecturer";
             	
             	
-            	int i=0;
+				String i= "000";
 				if(levelvalue.contains(p)) {
-				 i=1;
+					i = "001";
+					String combination=p.substring(0,4);
+					Rank.setText(combination+i);
 					
 				}
 				if(levelvalue.contains(A)) {
-					i=2;
+					i = "001";
+					String combination=A.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(levelvalue.contains(S)) {
-					i=3;
+					i = "001";
+					String combination=S.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(levelvalue.contains(Se)) {
-					i=4;
+					i = "001";
+					String combination=Se.substring(0,3);
+					Rank.setText(combination+i);
 				}
 				if(levelvalue.contains(Lec)) {
-					i=5;
+					i = "001";
+					String combination=Lec.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(levelvalue.contains(AL)) {
-					i=6;
+					i = "001";
+					String combination=AL.substring(0,4);
+					Rank.setText(combination+i);;
 				}
-				String combination=i+"."+ID;
-				textField_2.setText(combination);
+			
+				
+				
+			
 				
 			}
 		});
 		btnNewButton_14_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_14_1.setBackground(new Color(0, 0, 0));
+		btnNewButton_14_1.setBackground(Color.BLACK);
 		btnNewButton_14_1.setBounds(885, 253, 235, 40);
 		panel_3.add(btnNewButton_14_1);
 		
@@ -623,11 +668,12 @@ public class ManageLecturers {
 			}
 		});
 		btnNewButton_15_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		btnNewButton_15_1.setBackground(new Color(255, 255, 0));
+		btnNewButton_15_1.setBackground(Color.decode("#0593A2"));
 		btnNewButton_15_1.setBounds(885, 453, 235, 40);
 		panel_3.add(btnNewButton_15_1);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(null);
 		panel_2.setLayout(null);
 		panel_2.setBackground(Color.decode("#4660BD"));
 		panel_2.setBounds(253, 88, 1277, 76);
@@ -648,33 +694,34 @@ public class ManageLecturers {
 		panel_2.add(btnNewButton_11);
 		
 		JButton btnNewButton_12 = new JButton("Refresh");
+		btnNewButton_12.setForeground(Color.WHITE);
 		btnNewButton_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				
+				Refresh();
 				
-				
-				Connection conn = DBConnection.connect();
-				
-				
-	            try {
-	            	String sql="Select * from Lecturers ";
-					pst=conn.prepareStatement(sql);
-					
-					rs=pst.executeQuery();
-					table_1.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+//				Connection conn = DBConnection.connect();
+//				
+//				
+//	            try {
+//	            	String sql="Select * from Lecturers ";
+//					pst=conn.prepareStatement(sql);
+//					
+//					rs=pst.executeQuery();
+//					table_1.setModel(DbUtils.resultSetToTableModel(rs));
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
 	            
 				
 				
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(Color.decode("#FF7A48"));
-		btnNewButton_12.setBounds(1001, 9, 266, 58);
+		btnNewButton_12.setBackground(Color.decode("#554B82"));
+		btnNewButton_12.setBounds(920, 9, 266, 58);
 		panel_2.add(btnNewButton_12);
 		
 		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
@@ -683,5 +730,22 @@ public class ManageLecturers {
 		TimetableBtn.setBackground(new Color(255, 122, 72));
 		TimetableBtn.setBounds(10, 10, 233, 72);
 		frame.getContentPane().add(TimetableBtn);
+	}
+	
+	public void Refresh() {
+		
+		Connection conn = DBConnection.connect();
+		
+		
+        try {
+        	String sql="Select * from Lecturers ";
+			pst=conn.prepareStatement(sql);
+			
+			rs=pst.executeQuery();
+			table_1.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 }

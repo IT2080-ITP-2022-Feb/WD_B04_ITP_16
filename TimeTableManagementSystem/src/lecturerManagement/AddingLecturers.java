@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,6 +28,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import connection.DBConnection;
+import home.DashBoard;
+
 import javax.swing.JTextPane;
 import javax.swing.JTable;
 import javax.swing.JEditorPane;
@@ -35,7 +40,7 @@ import java.awt.SystemColor;
 
 public class AddingLecturers {
 
-private JFrame frame;
+public JFrame frame;
 
 	
 	PreparedStatement pstd=null;
@@ -74,12 +79,25 @@ private JFrame frame;
 
 	/**
 	 * Create the application.
+	 * @return 
 	 */
+
 	public AddingLecturers() {
 		initialize();
 		
 	}
-
+	
+	public String generateID() {
+		ArrayList<String> arrayList = new ArrayList<String>();
+		String name = "Lec000";
+		int rand = (int) (Math.random()*20);
+		
+		String id=name+ rand;
+		
+		return id;
+	}
+	
+	
 	/**
 	 * Initialize the scontents of the frame.
 	 */
@@ -147,7 +165,9 @@ private JFrame frame;
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -283,8 +303,9 @@ private JFrame frame;
 		panel_1.add(btnNewButton_10_1);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(null);
 		panel_3.setBackground(Color.decode("#4660BD"));
-		panel_3.setBounds(253, 174, 1045, 529);
+		panel_3.setBounds(253, 174, 1043, 529);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -292,14 +313,14 @@ private JFrame frame;
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		
-		lblNewLabel_1.setBounds(10, 10, 148, 41);
+		lblNewLabel_1.setBounds(10, 83, 148, 41);
 		panel_3.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Lecturer ID");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_2.setBounds(10, 83, 148, 41);
+		lblNewLabel_2.setBounds(10, 10, 148, 41);
 		panel_3.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Faculty");
@@ -320,7 +341,7 @@ private JFrame frame;
 		lblNewLabel_5.setBounds(10, 165, 129, 33);
 		panel_3.add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("Building");
+		JLabel lblNewLabel_6 = new JLabel("Location");
 		lblNewLabel_6.setForeground(new Color(255, 255, 255));
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel_6.setBounds(563, 161, 148, 41);
@@ -341,15 +362,16 @@ private JFrame frame;
 		LecturerName = new JTextField();
 		LecturerName.setBackground(new Color(255, 255, 255));
 		LecturerName.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		LecturerName.setBounds(145, 12, 299, 41);
+		LecturerName.setBounds(149, 83, 299, 41);
 		panel_3.add(LecturerName);
 		LecturerName.setColumns(10);
 		
 		LecturerID = new JTextField();
+		LecturerID.setEditable(false);
 		LecturerID.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		LecturerID.setColumns(10);
 		LecturerID.setBackground(new Color(255, 255, 255));
-		LecturerID.setBounds(145, 83, 299, 41);
+		LecturerID.setBounds(149, 10, 299, 41);
 		panel_3.add(LecturerID);
 		
 		JComboBox Faculty = new JComboBox();
@@ -377,14 +399,14 @@ private JFrame frame;
 		Building.setModel(new DefaultComboBoxModel(new String[] {"A", "B", "C", "D"}));
 		Building.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		Building.setBackground(new Color(255, 255, 255));
-		Building.setBounds(149, 161, 295, 41);
+		Building.setBounds(149, 161, 299, 41);
 		panel_3.add(Building);
 		
 		JComboBox Level = new JComboBox();
 		Level.setModel(new DefaultComboBoxModel(new String[] {"Professor               ", "AssistantProfessor  ", "Senior Lecturer(HG)", "Senior Lecturer   ", "Lecturer", "Assistant Lecturer"}));
 		Level.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		Level.setBackground(new Color(255, 255, 255));
-		Level.setBounds(145, 246, 299, 41);
+		Level.setBounds(145, 246, 303, 41);
 		panel_3.add(Level);
 		
 		Rank = new JTextField();
@@ -395,7 +417,7 @@ private JFrame frame;
 		Rank.setBounds(710, 246, 202, 41);
 		panel_3.add(Rank);
 		
-		JButton btnNewButton_13 = new JButton("GENERATE RANK");
+		JButton btnNewButton_13 = new JButton("GENERATE ID AND RANK");
 		btnNewButton_13.setForeground(new Color(240, 248, 255));
 		btnNewButton_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -415,42 +437,63 @@ private JFrame frame;
 				/*if(comboBoxLevel.getSelectedItem().toString().matches(p)) {
 					getRank=1;
 				}*/
-				int i=0;
+				String i= "000";
 				if(getRank.contains(p)) {
-				 i=1;
+					i = "001";
+					//String combination=getRank.substring(0,3);
 					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+				 
 				}
 				if(getRank.contains(A)) {
-					i=2;
+					i = "002";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
+					
 				}
 				if(getRank.contains(S)) {
-					i=3;
+					i = "003";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Se)) {
-					i=4;
+					i = "004";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(Lec)) {
-					i=5;
+					i = "005";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
 				if(getRank.contains(AL)) {
-					i=6;
+					i = "006";
+					//String combination=getRank.substring(0,3);
+					
+					String combination=getRank.substring(0,4);
+					Rank.setText(combination+i);
 				}
-				String combination=i+"."+getID;
-				Rank.setText(combination);
-				
 			
-				/*String combination=getID+getRank;
-				String AutoFillingRank=combination;
 				
-				textFieldRank.setText(AutoFillingRank);*/
+				LecturerID.setText(generateID());
 				
 				
 			
 			}
 		});
+		
 		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_13.setBackground(Color.decode("#151F30"));
-		btnNewButton_13.setBounds(710, 322, 258, 41);
+		btnNewButton_13.setBackground(Color.BLACK);
+		btnNewButton_13.setBounds(710, 320, 314, 41);
 		panel_3.add(btnNewButton_13);
 		
 		JButton btnNewButton_14 = new JButton("CLEAR");
@@ -487,9 +530,11 @@ private JFrame frame;
 				
 			}
 		});
+		
+		
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_14.setBackground(Color.decode("#0593A2"));
-		btnNewButton_14.setBounds(543, 409, 157, 41);
+		btnNewButton_14.setBounds(521, 409, 157, 41);
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_15 = new JButton("ADD");
@@ -500,43 +545,9 @@ private JFrame frame;
 			
 				
 				
-				String autofill;
-				String p="Professor";               
-				String A="AssistantProfessor";  
-				String S ="Senior Lecturer(HG)";
-				String Se="Senior Lecturer";   
-				String Lec="Lecturer";
-				String AL="Assistant Lecturer";
-				String getID=LecturerID.getText();
-				String getRank=(String) Level.getSelectedItem();
 			
-				/*if(comboBoxLevel.getSelectedItem().toString().matches(p)) {
-					getRank=1;
-				}*/
-				int i=0;
-				if(getRank.contains(p)) {
-				 i=1;
-					
-				}
-				if(getRank.contains(A)) {
-					i=2;
-				}
-				if(getRank.contains(S)) {
-					i=3;
-				}
-				if(getRank.contains(Se)) {
-					i=4;
-				}
-				if(getRank.contains(Lec)) {
-					i=5;
-				}
-				if(getRank.contains(AL)) {
-					i=6;
-				}
-				String combination=i+"."+getID;
 				
-
-					
+			
 					
 					
 					
@@ -544,42 +555,33 @@ private JFrame frame;
 				try {
 					
 					
-					if(LecturerName.getText().equals("") ||LecturerID.getText().equals("")||Faculty.getSelectedItem().equals("")||Deprtment.getSelectedItem().equals("")||Center.getSelectedItem().equals("")||Building.getSelectedItem().equals("")||Level.getSelectedItem().equals("")||Rank.getText().equals("")) {
+					if(LecturerName.getText().equals("")||LecturerID.getText().equals("") ||Faculty.getSelectedItem().equals("")||Deprtment.getSelectedItem().equals("")||Center.getSelectedItem().equals("")||Building.getSelectedItem().equals("")||Level.getSelectedItem().equals("")||Rank.getText().equals("")) {
 						JOptionPane.showMessageDialog(null, "Please fill the form and press generate button to generate the rank");
 						
 						 
 							
 						
 					}else if(!(LecturerName.getText().trim().matches("^[A-Za-z]+"))){
-						JOptionPane.showMessageDialog(null, "Invalid Lecturer name");
+						JOptionPane.showMessageDialog(null, "Invalid Lecturer name","Warning",JOptionPane.WARNING_MESSAGE);
 						
 					}
-					else if(!(LecturerID.getText().trim().matches("^[a-z0-9]+"))){
-						JOptionPane.showMessageDialog(null, "Lecturer Id Should Contain Nine Integers");
+					else if(!(LecturerID.getText().trim().matches("^[A-Za-z0-9]+"))){
+						JOptionPane.showMessageDialog(null, "Lecturer Id Should Contain the following format (Lec00x)","Warning",JOptionPane.WARNING_MESSAGE);
 					
 					}else if(Faculty.getSelectedItem().toString().equals("Computing") && Deprtment.getSelectedItem().toString().equals("Electrical")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Computing")&&Deprtment.getSelectedItem().toString().equals("Civil")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Computing")&& Deprtment.getSelectedItem().toString().equals("Mechanical")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("SE")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("IT")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
 					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Deprtment.getSelectedItem().toString().equals("DS")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(!(combination.equals(Rank.getText().toString()))) {
-						
-						
-						
-						JOptionPane.showMessageDialog(null, "Please Generate The Rank Again");
-					
-					
-					
-					
-				
-				}else {
+						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch","Warning",JOptionPane.WARNING_MESSAGE);
+					}
+				else {
 						Connection connec = DBConnection.connect();
 					
 						
@@ -597,7 +599,7 @@ private JFrame frame;
 				               
 
 							String msg = "" + Name;
-			                msg += " \n";
+			                
 			                
 			             
 							
@@ -608,23 +610,24 @@ private JFrame frame;
 		                    String query = "INSERT INTO Lecturers values('" + ID + "','" + Name + "','" + faculty + "','" +
 		                    		center + "','" + Department + "','" + building + "','"+ level +"','"+ rank +"',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null)";
 
+
 		                    Statement sta = con.createStatement();
 		                    int xx = sta.executeUpdate(query);
 		                    
 		                    if (xx == 0) {
-		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist");
+		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist","Warning",JOptionPane.WARNING_MESSAGE);
 							} else {
 		                    
 		                    
 		                    
-		                    JOptionPane.showMessageDialog(null,
-		                            "" + msg + "' Record is sucessfully created and added to the system, please add active hours and days ");
+		                    JOptionPane.showMessageDialog(null,msg+" Lecturer's Record of Lecturer is sucessfully created and added to the system, "
+		                    		+ "please add active hours and days","Info",JOptionPane.INFORMATION_MESSAGE);
 		                    Addactivedayshoursforlecturers activedays=new Addactivedayshoursforlecturers();
 		    				activedays.main(null);
 		    				//frame.setVisible(false);
 		                    
 		                    con.close();
-		                    LecturerName.setText(null);
+		                      LecturerName.setText(null);
 							  LecturerID.setText(null);
 							  Faculty.setSelectedItem(null);
 							  Deprtment.setSelectedItem(null);
@@ -647,7 +650,8 @@ private JFrame frame;
 					
 					
 				catch(Exception w){
-					JOptionPane.showMessageDialog(null, w );
+					JOptionPane.showMessageDialog(null, "Lecturer ID Already exits","Error",JOptionPane.ERROR_MESSAGE );
+					System.out.println(w);
 					
 				}
 				
@@ -676,7 +680,7 @@ private JFrame frame;
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_15.setBackground(Color.decode("#103778"));
-		btnNewButton_15.setBounds(344, 409, 157, 41);
+		btnNewButton_15.setBounds(297, 409, 157, 41);
 		panel_3.add(btnNewButton_15);
 		
 		table = new JTable();
@@ -699,9 +703,10 @@ private JFrame frame;
 		txtTimetableGenerator.setHorizontalAlignment(SwingConstants.CENTER);
 		txtTimetableGenerator.setForeground(new Color(255, 255, 255));
 		txtTimetableGenerator.setBackground(Color.decode("#4660BD"));
-		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 38));
+		txtTimetableGenerator.setFont(new Font("Tahoma", Font.BOLD, 65));
 		txtTimetableGenerator.setText("ADD LECTURERS");
-		txtTimetableGenerator.setBounds(358, 55, 464, 72);
+		txtTimetableGenerator.setBounds(286, 57, 656, 72);
+		txtTimetableGenerator.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
 		frame.getContentPane().add(txtTimetableGenerator);
 		txtTimetableGenerator.setColumns(10);
 		
