@@ -36,7 +36,7 @@ import java.awt.SystemColor;
 public class AddWorkingDays {
 
 	/**
-	 * @param args
+	 * rifak
 	 */
 	
 	private JFrame frame;
