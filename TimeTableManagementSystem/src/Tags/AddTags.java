@@ -38,7 +38,7 @@ import javax.swing.BorderFactory;
 public class AddTags {
 
 	/**
-	 * @param s args
+	 * @param s args.
 	 */
 	
 private JFrame frame;

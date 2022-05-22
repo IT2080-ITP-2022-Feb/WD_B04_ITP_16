@@ -413,7 +413,7 @@ public class AddLocations {
 		TimetableBtn.setBounds(10, 10, 233, 72);
 		frame.getContentPane().add(TimetableBtn);
 		
-		txtAddLocations = new JTextField();
+		txtAddLocations =  new JTextField();
 		txtAddLocations.setText("ADD LOCATIONS");
 		txtAddLocations.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAddLocations.setForeground(Color.WHITE);

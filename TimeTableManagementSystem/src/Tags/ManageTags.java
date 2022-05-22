@@ -39,7 +39,7 @@ import javax.swing.BorderFactory;
 
 
 /**
- * @author uzmanws
+ * @author uzman
  *
  */
 public class ManageTags {
