@@ -34,7 +34,9 @@ import sessions.AddSessions;
 import sessions.ManageSessions;
 import student.AddStudentGroups;
 import subjectManagement.AddSubjects;
-
+/*Author
+ * Muhassan Faizal IT1912050
+ */
 public class StudentTimeTable {
 
 	JFrame frame;
