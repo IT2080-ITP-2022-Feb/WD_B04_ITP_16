@@ -1,4 +1,4 @@
-package StudentManagement;
+package Student;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -8,119 +8,102 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.UIManager;
-
-import connection.DBConnection;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+
+import connection.DBConnection;
+import home.DashBoard;
+import lecturerManagement.AddingLecturers;
 
 
-public class AddingStudent {
+
+public class AddStudentGroups {
 
 private JFrame frame;
+
 	
 	PreparedStatement pstd=null;
 	PreparedStatement pst = null;
 	PreparedStatement ptsID=null;
 	ResultSet rs = null;
+	Connection conn;
+	private JTextField GroupID;
+	private JTextField SubGroupID;
+	private JSpinner GroupNo;
+	private JSpinner SubGroupNo;
 	static int no;
 	static int noid;
-	
-	Connection conn;
-	private JTextField StudentID;
-	private JTextField AcademicYearSemester;
-	private JTextField GroupID;
-	
-
 	/**
 	 * Launch the application.
 	 */
-	JSpinner spinner,spinner_2,spinner_1,spinner_1_3,spinner_1_1,spinner_1_1_1,spinner_1_2,spinner_1_2_1,spinner_3,spinner_2_1,spinner_1_4,spinner_1_3_1,spinner_1_1_2,spinner_1_1_1_1;
-	private JTable table;
-	private JTextField txtTimetableGenerator;
-	private JTextField textField;
-	private JTextField textField_1;
+	
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
 		DBConnection.connect();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddingStudent window = new AddingStudent();
+					AddStudentGroups window = new AddStudentGroups();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
 
+	}
+	
 	/**
 	 * Create the application.
 	 */
-	public AddingStudent() {
+	public AddStudentGroups() {
 		initialize();
+		setID();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void getstutIDS() {
-		Connection conn = DBConnection.connect();
-		try{
-			String query="select * from Student";
-			pst=conn.prepareStatement(query);
-			rs=pst.executeQuery();
-			//table.setModel(DbUtils.resultSetToTableModel(rs));
-			while(rs.next()) {
-				//comboBoxLec1.addItem(rs.getString("LecturerName"));
-				String name=rs.getString("Stud_ID");
-				//comboBox_2.addItem(name);
-				
-			}
-			conn.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-			
-		}
+	
+	
+	public void setID() {
+		
+        try{
+            String sql = "select no from StudentGroups";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                 no = rs.getInt("no");
+                 
+                
+                noid = no+1;
+               
+            }else{
+            	noid = 0;
+            }
+        }catch(Exception e){
+            //JOptionPane.showMessageDialog(null, e);
+        }finally{
+            try{
+                pst.close();
+                rs.close();
+            }catch(Exception e){
+                
+            }
+        }
 		
 	}
-	
-
-	
-	/*public void checkstudents() {
-		Connection conn = DBConnection.connect();
-		try{
-			//String LecturerName=LecturerName.getText();Connection conn = DBConnection.connect();
-			String query="select * from Lecturer";
-			pst=conn.prepareStatement(query);
-			rs=pst.executeQuery();
-			//table.setModel(DbUtils.resultSetToTableModel(rs));
-			while(rs.next()) {
-				//comboBoxLec1.addItem(rs.getString("LecturerName"));
-				 lecname=rs.getString("LecturerName");
-				//comboBoxLec1_3.addItem(name);
-				
-			}
-			conn.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-			
-		}
-	}*/
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.decode("#4660BD"));
@@ -140,7 +123,9 @@ private JFrame frame;
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -153,9 +138,9 @@ private JFrame frame;
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				/*AddingLecturers addinglectures=new AddingLecturers();
+				AddingLecturers addinglectures=new AddingLecturers();
 				addinglectures.main(null);
-				frame.setVisible(false);*/
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -167,9 +152,6 @@ private JFrame frame;
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AddingStudent addingstudent=new AddingStudent();
-				addingstudent.main(null);
-				frame.setVisible(false);
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -273,270 +255,176 @@ private JFrame frame;
 				
 			}
 		});
-		
 		btnNewButton_10_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_10_1.setBackground(Color.decode("#FFFEFE"));
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBackground(Color.decode("#4660BD"));
+		panel_2.setBounds(253, 88, 973, 76);
+		frame.getContentPane().add(panel_2);
+		
+		JButton btnNewButton_11 = new JButton("Add Student Groups");
+		btnNewButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddStudentGroups addstudentgroups=new AddStudentGroups();
+				addstudentgroups.main(null);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_11.setForeground(Color.BLACK);
+		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_11.setBackground(new Color(204, 255, 255));
+		btnNewButton_11.setBounds(10, 10, 266, 56);
+		panel_2.add(btnNewButton_11);
+		
+		JButton btnNewButton_12 = new JButton("Manage Student Groups");
+		btnNewButton_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManageStudentGroups managestudentgroups=new ManageStudentGroups();
+				managestudentgroups.main(null);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_12.setBackground(new Color(204, 255, 255));
+		btnNewButton_12.setBounds(697, 9, 266, 58);
+		panel_2.add(btnNewButton_12);
+		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(Color.decode("#4660BD"));
-		panel_3.setBounds(253, 174, 1045, 529);
+		panel_3.setBounds(253, 174, 973, 529);
 		frame.getContentPane().add(panel_3);
+		panel_3.setBackground(Color.decode("#4660BD"));
 		panel_3.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Student ID");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_1 = new JLabel("Academic Year Semester");
+		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		
-		lblNewLabel_1.setBounds(10, 10, 148, 41);
+		lblNewLabel_1.setBackground(new Color(148, 0, 211));
+		lblNewLabel_1.setBounds(10, 30, 230, 50);
 		panel_3.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Faculty");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_2 = new JLabel("Programme");
+		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_2.setBounds(563, 10, 148, 41);
+		lblNewLabel_2.setBounds(10, 90, 230, 41);
 		panel_3.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Programme");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_3 = new JLabel("Group No");
+		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_3.setBounds(563, 83, 148, 41);
+		lblNewLabel_3.setBounds(10, 150, 230, 41);
 		panel_3.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Academic year semester");
-		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_4 = new JLabel("Sub Group No");
+		lblNewLabel_4.setForeground(Color.WHITE);
 		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_4.setBounds(10, 154, 205, 41);
+		lblNewLabel_4.setBounds(10, 210, 230, 41);
 		panel_3.add(lblNewLabel_4);
 		
-		
-		JLabel lblNewLabel_5 = new JLabel("Group");
-		lblNewLabel_5.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_5 = new JLabel("Group ID");
+		lblNewLabel_5.setForeground(Color.WHITE);
 		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_5.setBounds(563, 154, 148, 41);
+		lblNewLabel_5.setBounds(525, 90, 230, 33);
 		panel_3.add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("Sub Group");
-		lblNewLabel_6.setForeground(new Color(255, 255, 255));
+		JLabel lblNewLabel_6 = new JLabel("Sub Group ID");
+		lblNewLabel_6.setForeground(Color.WHITE);
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_6.setBounds(10, 227, 148, 41);
+		lblNewLabel_6.setBounds(525, 150, 230, 41);
 		panel_3.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("Group ID");
-		lblNewLabel_7.setForeground(new Color(255, 255, 255));
-		lblNewLabel_7.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		
-		lblNewLabel_7.setBounds(10, 83, 148, 41);
-		panel_3.add(lblNewLabel_7);
-		
-		StudentID = new JTextField();
-		StudentID.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		StudentID.setColumns(10);
-		StudentID.setBackground(new Color(255, 255, 255));
-		StudentID.setBounds(145, 83, 299, 41);
-		panel_3.add(StudentID);
-		
-		JComboBox Faculty = new JComboBox();
-		Faculty.setModel(new DefaultComboBoxModel(new String[] {"Computing", "Engineering"}));
-		Faculty.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Faculty.setBackground(new Color(255, 255, 255));
-		Faculty.setBounds(710, 10, 291, 41);
-		panel_3.add(Faculty);
+		JComboBox AcademicYearSem = new JComboBox();
+		AcademicYearSem.setModel(new DefaultComboBoxModel(new String[] {"Y1.S1", "Y1.S2", "Y2.S1", "Y2.S2", "Y3.S1", "Y3.S2", "Y4.S1", "Y4.S2"}));
+		AcademicYearSem.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		AcademicYearSem.setBackground(Color.WHITE);
+		AcademicYearSem.setBounds(225, 30, 220, 41);
+		panel_3.add(AcademicYearSem);
 		
 		JComboBox Programme = new JComboBox();
-		Programme.setModel(new DefaultComboBoxModel(new String[] {"SE", "IT", "DS", "Electrical", "Civil", "Mechanical"}));
+		Programme.setModel(new DefaultComboBoxModel(new String[] {"SE", "IT", "DS", "CSNE", "IM", "ISE"}));
 		Programme.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		Programme.setBackground(new Color(255, 255, 255));
-		Programme.setBounds(710, 83, 295, 41);
+		Programme.setBounds(225, 90, 220, 41);
 		panel_3.add(Programme);
 		
-		AcademicYearSemester = new JTextField();
-		AcademicYearSemester.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		AcademicYearSemester.setColumns(10);
-		AcademicYearSemester.setBackground(new Color(255, 255, 255));
-		AcademicYearSemester.setBounds(145, 83, 299, 41);
-		panel_3.add(AcademicYearSemester);
+		JSpinner GroupNo = new JSpinner();
+		GroupNo.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		GroupNo.setModel(new SpinnerNumberModel(1, 1, 15, 1));
+		GroupNo.setBounds(225, 150, 220, 38);
+		panel_3.add(GroupNo);
 		
-		JComboBox Group = new JComboBox();
-		Group.setModel(new DefaultComboBoxModel(new String[] {"Weekday", "Weekend"}));
-		Group.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Group.setBackground(new Color(255, 255, 255));
-		Group.setBounds(710, 83, 295, 41);
-		panel_3.add(Group);
-		
-		JComboBox SubGroup = new JComboBox();
-		SubGroup.setModel(new DefaultComboBoxModel(new String[] {"Weekday", "Weekend"}));
-		SubGroup.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		SubGroup.setBackground(new Color(255, 255, 255));
-		SubGroup.setBounds(710, 83, 295, 41);
-		panel_3.add(SubGroup);
+		JSpinner SubGroupNo = new JSpinner();
+		SubGroupNo.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		SubGroupNo.setModel(new SpinnerNumberModel(1, 1, 5, 1));
+		SubGroupNo.setBounds(225, 210, 220, 38);
+		panel_3.add(SubGroupNo);
 		
 		GroupID = new JTextField();
 		GroupID.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		GroupID.setColumns(10);
 		GroupID.setBackground(new Color(255, 255, 255));
-		GroupID.setBounds(145, 83, 299, 41);
+		GroupID.setBounds(685, 90, 220, 41);
 		panel_3.add(GroupID);
 		
+		SubGroupID = new JTextField();
+		SubGroupID.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		SubGroupID.setColumns(10);
+		SubGroupID.setBackground(new Color(255, 255, 255));
+		SubGroupID.setBounds(685, 150, 220, 41);
+		panel_3.add(SubGroupID);
 		
-		JButton btnNewButton_14 = new JButton("CLEAR");
-		btnNewButton_14.setForeground(new Color(240, 248, 255));
-		btnNewButton_14.addActionListener(new ActionListener() {
+		JButton btnNewButton_13 = new JButton("Generate");
+		btnNewButton_13.setForeground(Color.WHITE);
+		btnNewButton_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				StudentID.setText(null);
-				Faculty.setSelectedItem(null);
+		if(AcademicYearSem.getSelectedItem().hashCode() ==0 || Programme.getSelectedItem().hashCode() == 0 || GroupNo.getValue().hashCode() == 0 || SubGroupNo.getValue().hashCode() ==0    ) {
+			
+			
+			JLabel label = new JLabel("Please fill all fileds!");
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			JOptionPane.showMessageDialog(null, label);
+			
+		}	
+	
+		else{	
+			
+				GroupID.setText(AcademicYearSem.getSelectedItem().toString()+"."+Programme.getSelectedItem().toString()+"."+ GroupNo.getValue().toString());
+		
+				SubGroupID.setText(AcademicYearSem.getSelectedItem().toString()+"."+Programme.getSelectedItem().toString()+"."+ GroupNo.getValue().toString()+"."+SubGroupNo.getValue().toString());
+			
+		}		
+				
+		}
+
+		});
+		btnNewButton_13.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_13.setBackground(Color.DARK_GRAY);
+		btnNewButton_13.setBounds(605, 240, 148, 41);
+		panel_3.add(btnNewButton_13);
+		
+		JButton btnNewButton_14 = new JButton("Clear");
+		btnNewButton_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				SubGroupID.setText(null);
+				AcademicYearSem.setSelectedItem(null);
 				Programme.setSelectedItem(null);
-				AcademicYearSemester.setText(null);
-				Group.setSelectedItem(null);
-				SubGroup.setSelectedItem(null);
+				
 				GroupID.setText(null);
-				
-				
-				spinner.setValue(null);
-				spinner_2.setValue(null);
-				spinner_1.setValue(null);
-				spinner_1_3.setValue(null);
-				spinner_1_1.setValue(null);
-				spinner_1_1_1.setValue(null);
-				spinner_1_2.setValue(null);
-				spinner_1_2_1.setValue(null);
-				spinner_3.setValue(null);
-				spinner_2_1.setValue(null);
-				spinner_1_4.setValue(null);
-				spinner_1_3_1.setValue(null);
-				spinner_1_1_2.setValue(null);
-				spinner_1_1_1_1.setValue(null);
-        
+				GroupNo.setValue(null);
+				SubGroupNo.setValue(null);
 				
 				
 			}
 		});
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_14.setBackground(Color.decode("#0593A2"));
-		btnNewButton_14.setBounds(543, 409, 157, 41);
+		btnNewButton_14.setBackground(Color.decode("#103778"));
+		btnNewButton_14.setBounds(205, 382, 157, 41);
 		panel_3.add(btnNewButton_14);
-		
-		JButton btnNewButton_15 = new JButton("ADD");
-		btnNewButton_15.setForeground(new Color(240, 248, 255));
-		btnNewButton_15.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					if(!(StudentID.getText().trim().matches("^[a-z0-9]+"))){
-						JOptionPane.showMessageDialog(null, "Student Id Should Contain Nine Integers");
-						
-					}else if(Faculty.getSelectedItem().toString().equals("Computing") && Programme.getSelectedItem().toString().equals("Electrical")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(Faculty.getSelectedItem().toString().equals("Computing")&& Programme.getSelectedItem().toString().equals("Civil")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(Faculty.getSelectedItem().toString().equals("Computing")&& Programme.getSelectedItem().toString().equals("Mechanical")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Programme.getSelectedItem().toString().equals("SE")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Programme.getSelectedItem().toString().equals("IT")) {
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					}else if(Faculty.getSelectedItem().toString().equals("Engineering") && Programme.getSelectedItem().toString().equals("DS")){
-						JOptionPane.showMessageDialog(null, "Faculty and department are mismatch");
-					
-					}else {
-						Connection connec = DBConnection.connect();
-					
-						
-							
-							String sid=StudentID.getText();
-							String faculty=Faculty.getSelectedItem().toString();
-							String programme=Programme.getSelectedItem().toString();
-							String academic=AcademicYearSemester.getText();
-							String group=Group.getSelectedItem().toString();
-							String subgroup=SubGroup.getSelectedItem().toString();
-							String gid=GroupID.getText();				
-	
-							Connection con = DBConnection.connect();
-
-		                    String query = "INSERT INTO Student values('" + sid + "','" + faculty + "','" + programme + "','" +
-		                    		academic + "','" + group + "','" + subgroup +"','"+ gid +"',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,null)";
-
-		                    Statement sta = con.createStatement();
-		                    int xx = sta.executeUpdate(query);
-		                    
-		                    if (xx == 0) {
-		                    	JOptionPane.showMessageDialog(btnNewButton, "This record already exist");
-							} else {
-								
-								/*JOptionPane.showMessageDialog(null,
-			                            "" + msg + "' Record is sucessfully created and added to the system");
-			                    Addactivedayshoursforlecturers activedays=new Addactivedayshoursforlecturers();
-			    				activedays.main(null);
-			    				//frame.setVisible(false);
-			                    
-			                    con.close();
-								  LecturerID.setText(null);
-								  Faculty.setSelectedItem(null);
-								  Deprtment.setSelectedItem(null);
-								  Center.setSelectedItem(null);
-								  Building.setSelectedItem(null);
-								  Level.setSelectedItem(null);
-								  Rank.setText(null);*/
-			                    
-			                   
-			                
-								}
-		                    
-		                	
-					}
-					}
-				catch(Exception w){
-					JOptionPane.showMessageDialog(null, w );
-					
-				}
-				
-				finally{
-                    try{
-                         pst.close();
-                                rs.close();
-                    }catch(Exception r){
-                        
-                    }
-                }
-			
-					}
-								
-		});
-		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15.setBackground(Color.decode("#103778"));
-		btnNewButton_15.setBounds(344, 409, 157, 41);
-		panel_3.add(btnNewButton_15);
-		
-		textField = new JTextField();
-		textField.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		textField.setColumns(10);
-		textField.setBackground(Color.WHITE);
-		textField.setBounds(145, 10, 299, 41);
-		panel_3.add(textField);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		textField_1.setColumns(10);
-		textField_1.setBackground(Color.WHITE);
-		textField_1.setBounds(225, 154, 219, 41);
-		panel_3.add(textField_1);
-		
-		JComboBox Programme_1 = new JComboBox();
-		Programme_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Programme_1.setBackground(Color.WHITE);
-		Programme_1.setBounds(149, 227, 295, 41);
-		panel_3.add(Programme_1);
-		
-		JComboBox Programme_2 = new JComboBox();
-		Programme_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		Programme_2.setBackground(Color.WHITE);
-		Programme_2.setBounds(710, 154, 295, 41);
-		panel_3.add(Programme_2);
-		
-		table = new JTable();
-		table.setBounds(358, 44, 1, 1);
-		frame.getContentPane().add(table);
 		
 		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
 		TimetableBtn.addActionListener(new ActionListener() {
@@ -550,31 +438,134 @@ private JFrame frame;
 		TimetableBtn.setBounds(10, 10, 233, 72);
 		frame.getContentPane().add(TimetableBtn);
 		
-		txtTimetableGenerator = new JTextField();
-		txtTimetableGenerator.setForeground(new Color(255, 255, 255));
-		txtTimetableGenerator.setBackground(Color.decode("#4660BD"));
-		txtTimetableGenerator.setFont(new Font("Calibri", Font.BOLD, 38));
-		txtTimetableGenerator.setText("ADD STUDENTS");
-		txtTimetableGenerator.setBounds(389, 57, 266, 72);
-		frame.getContentPane().add(txtTimetableGenerator);
-		txtTimetableGenerator.setColumns(10);
-		
-		
-		
-		JButton btnNewButton_13_1 = new JButton("Manage Students");
-		btnNewButton_13_1.addActionListener(new ActionListener() {
+		JButton btnNewButton_15 = new JButton("ADD");
+		btnNewButton_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ManageStudent managestudent=new ManageStudent();
-				managestudent.main(null);
-				frame.setVisible(false);
+				
+
+				
+				String generate;
+			
+				
+				String a=AcademicYearSem.getSelectedItem().toString();
+				String b=Programme.getSelectedItem().toString();
+				String c=GroupID.getText().toString();
+				String d=SubGroupID.getText().toString();
+				String o=GroupNo.getValue().toString();
+				String f=SubGroupNo.getValue().toString();
+				
+				generate=""+a+"."+b+"."+o+"."+f;
+
+					
+					
+					
+					
+				
+				try {
+					
+					
+					if(AcademicYearSem.getSelectedItem().equals("") ||Programme.getSelectedItem().equals("")||GroupNo.getValue().equals("")||SubGroupNo.getValue().equals("")||GroupID.getText().equals("")||SubGroupID.getText().equals("")) {
+						JOptionPane.showMessageDialog(null, "Please fill the form and press generate button to generate group Id and subgroup Id ");
+						
+						 
+							
+						
+					}else if(!(generate.equals(SubGroupID.getText().toString()))) {
+						
+						
+						
+						JOptionPane.showMessageDialog(null, "Data mismatch");
+					
+					
+					
+					
+				}else{
+						Connection connec = DBConnection.connect();
+					
+							
+							
+							String subID=SubGroupID.getText();
+							String AcademicYearSe=AcademicYearSem.getSelectedItem().toString();
+							String programme=Programme.getSelectedItem().toString();
+							
+							String ggroupID=GroupID.getText();
+							String groupID=GroupNo.getValue().toString();
+							String subgroupID=SubGroupNo.getValue().toString();
+				               
+
+							String msg = "" + ggroupID;
+			                msg += "";
+			                
+			             
+							
+							
+
+		                	Connection con = DBConnection.connect();
+
+		                    String query = "INSERT INTO StudentGroups values(null,'" + AcademicYearSe + "','" + programme + "','" + groupID + "','" +
+		                    		subgroupID + "','" + ggroupID + "','" + subID + "')";
+
+		                    java.sql.Statement sta = con.createStatement();
+		                    int xx = sta.executeUpdate(query);
+		                 
+							
+		                    
+		                    
+		                    
+		                    JOptionPane.showMessageDialog(null,
+		                            "" + msg + "' is sucessfully added to the system ");
+		                 
+		                    
+		                    con.close();
+		                    SubGroupID.setText(null);
+		    				AcademicYearSem.setSelectedItem(null);
+		    				Programme.setSelectedItem(null);
+		    				
+		    				GroupID.setText(null);
+		    				GroupNo.setValue(null);
+		    				SubGroupNo.setValue(null);
+		    				
+		                    
+		                   
+		                
+							
+							
+							
+							
+							
+							
+						
+					}
+					}
+					
+					
+				catch(Exception w){
+			
+				
+				}
+				
+				finally{
+                    try{
+                         pst.close();
+                                rs.close();
+                    }catch(Exception r){
+                        
+                    }
+                }
+		
+					
+				
 			}
 		});
-		btnNewButton_13_1.setForeground(new Color(240, 248, 255));
-		btnNewButton_13_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_13_1.setBackground(Color.decode("#554B82"));
-		btnNewButton_13_1.setBounds(964, 88, 258, 41);
-		frame.getContentPane().add(btnNewButton_13_1);
+		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_15.setBackground(Color.decode("#103778"));
+		btnNewButton_15.setBounds(600, 382, 157, 41);
+		panel_3.add(btnNewButton_15);
 		
 		
+
+				
+
 	}
+
 }
