@@ -297,7 +297,7 @@ public class LectureTimeTable {
 		panel_7.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 66, 1035, 368);
+		scrollPane.setBounds(-145, 70, 1035, 368);
 		//frmAddStudentGroup.getContentPane().add(scrollPane);
 		panel_7.add(scrollPane);
 		
