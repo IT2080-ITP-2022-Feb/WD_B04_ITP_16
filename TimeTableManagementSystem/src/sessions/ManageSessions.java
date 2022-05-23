@@ -67,7 +67,19 @@ public class ManageSessions {
 			}
 		});
 	}
-
+	public void clear() {
+		
+		comboBoxLec1.setSelectedItem(null);
+		
+		comboBox_2.setSelectedItem(null);
+		comboBox_3.setSelectedItem(null);
+		comboBoxLec1_3.setSelectedItem(null);
+		textField_1.setText(null);
+		textField_3.setText(null);
+		textField_2.setText(null);
+		textField.setText(null);
+		textField_4.setText(null);
+	}
 	/**
 	 * Create the application.
 	 */
@@ -245,6 +257,7 @@ public class ManageSessions {
 	public ManageSessions() {
 		initialize();
 		refresh();
+		 clear();
 	}
 
 	/**
@@ -460,14 +473,28 @@ public class ManageSessions {
 	            	//String tag=comboBox.getSelectedItem().toString();
 	            	//String lecname=comboBoxLec1_1.getSelectedItem().toString();
 	            	
+	            	
+	   	         	if(comboBoxLec1_1.getSelectedItem().equals("")||comboBoxLec1_1.getSelectedItem().equals("----------Select Lecturer-------" )) {
+						JOptionPane.showMessageDialog(null, "Please Select A lecturer");
+	   	         	}
+	   	         	else if (comboBox.getSelectedItem().equals("")||comboBox.getSelectedItem().equals("----------Select Tag-------------" ))
+	   	         	{
+	   	         		JOptionPane.showMessageDialog(null, "Please Select A Tag");
+	   	         	}
+	   	         	
 	            	String sql="Select * from Sessions where Tag='"+comboBox.getSelectedItem().toString()+"' AND Lecturer1='"+comboBoxLec1_1.getSelectedItem().toString()+"'";
 					pst=conn.prepareStatement(sql);
 					
 					rs=pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));
+					
+					clear();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					
+					
+					
 				}
 	            
 				
@@ -637,13 +664,14 @@ public class ManageSessions {
 				String tag=(String)comboBox_2.getSelectedItem();
 				String groupID=(String)comboBox_3.getSelectedItem();
 				String studentCount=textField_1.getText().toString();
+				int stCount = Integer.parseInt(studentCount);
 				String duration=textField_3.getText().toString();
 				
 				
 				
 			
 				
-				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+studentCount+"."+duration;
+				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+stCount+"."+duration;
 				textField.setText(sessionID);
 				
 				
@@ -796,6 +824,7 @@ public class ManageSessions {
 		panel_5.add(lblNewLabel_3);
 		
 		 comboBox_1 = new JComboBox();
+		 comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Optional"}));
 		 comboBox_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		 comboBox_1.setBackground(Color.WHITE);
 		comboBox_1.setBounds(172, 330, 168, 36);
@@ -1096,7 +1125,9 @@ public class ManageSessions {
 				
 			}
 		 });
-	
+			
+		
+
 		comboBox_3.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent arg0) {	
 		 		

@@ -30,6 +30,7 @@ import connection.DBConnection;
 import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
+import timeTable.LectureTimeTable;
 
 public class AddConsecutiveSession {
 
@@ -316,7 +317,9 @@ private JFrame frame;
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				LectureTimeTable ltime = new LectureTimeTable();
+				ltime.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));

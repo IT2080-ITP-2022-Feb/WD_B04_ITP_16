@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import consecutiveSession.NotAvailableTIme;
@@ -29,6 +30,7 @@ import java.awt.event.MouseEvent;
 public class DashBoard {
 
 	private JFrame frame;
+	private JTextField DateTime;
 
 	/**
 	 * Launch the application.
@@ -291,6 +293,11 @@ public class DashBoard {
 		btnNewButton_10_1.setBounds(855, 412, 371, 79);
 		frame.getContentPane().add(btnNewButton_10_1);
 		
+		DateTime = new JTextField();
+		DateTime.setForeground(Color.WHITE);
+		DateTime.setFont(new Font("Tahoma", Font.BOLD, 15));
+		DateTime.setBounds(1114, 25, 197, 44);
+	
 		JLabel lblNewLabel_1 = new JLabel("    ");
 		lblNewLabel_1.setBounds(20, 88, 1201, 620);
 		frame.getContentPane().add(lblNewLabel_1);

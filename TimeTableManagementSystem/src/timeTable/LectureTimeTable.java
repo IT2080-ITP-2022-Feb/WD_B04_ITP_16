@@ -12,8 +12,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -43,6 +46,16 @@ public class LectureTimeTable {
 	private JTextField txtLecturer;
 	private JComboBox comboBox;	
 	private JTable table;
+	private JLabel dateTimes;
+	private JTextField dateTime;
+	
+	public void currentDate() {
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-YYYY HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		
+		dateTime.setText(dtf.format(now));
+	}
 	
 	  public void filllectureNames() {
 			
@@ -131,6 +144,7 @@ public class LectureTimeTable {
 		
 		// TODO Auto-generated constructor stub
 	 initialize();
+	 currentDate();
 	}
 
 	/**
@@ -480,6 +494,16 @@ public class LectureTimeTable {
 		btnTimetableGenerator.setBackground(Color.decode("#FF7A48"));
 		btnTimetableGenerator.setBounds(10, 10, 233, 74);
 		frmAddStudentGroup_1.getContentPane().add(btnTimetableGenerator);
+		
+		dateTime = new JTextField();
+		dateTime.setForeground(Color.WHITE);
+		dateTime.setFont(new Font("Tahoma", Font.BOLD, 15));
+		dateTime.setBounds(1114, 25, 197, 44);
+		
+		dateTime.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
+		dateTime.setBackground(Color.decode("#4660BD"));
+		frmAddStudentGroup_1.getContentPane().add(dateTime);
+		dateTime.setColumns(10);
 		
 		
 		//table header

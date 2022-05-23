@@ -31,7 +31,7 @@ import lecturerManagement.AddingLecturers;
 public class AddSessions {
 
 	private JFrame frame;
-	private JComboBox comboBoxLec1,comboBox_1,comboBox_2,comboBox_3;
+	private  JComboBox comboBoxLec1,comboBox_1,comboBox_2,comboBox_3;
 
 	/**
 	 * Launch the application.
@@ -56,7 +56,6 @@ public class AddSessions {
 			}
 		});
 	}
-	
 	
 
 	/**
@@ -208,12 +207,15 @@ public class AddSessions {
 	
 	public AddSessions() {
 		initialize();
+	
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.decode("#4660BD"));
@@ -420,7 +422,7 @@ public class AddSessions {
 				
 				calculateDuration();
 				
-				
+				  
 				
 				String Lec1Name=(String)comboBoxLec1.getSelectedItem();
 				//String SubCode=(String)comboBox_1_1_1.getSelectedItem();
@@ -428,13 +430,14 @@ public class AddSessions {
 				String tag=(String)comboBox_2.getSelectedItem();
 				String groupID=(String)comboBox_3.getSelectedItem();
 				String studentCount=spinner_2.getValue().toString();
+				int stCount = Integer.parseInt(studentCount);
 				String duration=textField_2.getText().toString();
 				
 				
 				
 			
 				
-				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+studentCount+"."+duration;
+				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+stCount+"."+duration;
 				textField.setText(sessionID);
 				
 				
@@ -443,17 +446,21 @@ public class AddSessions {
 				
 				try {
 					
-					
+					 
 					if(comboBoxLec1.getSelectedItem().equals("")||comboBox_1.getSelectedItem().equals("") ||comboBox_2.getSelectedItem().equals("")||comboBox_3.getSelectedItem().equals("")||comboBox_1_1_1.getSelectedItem().equals("")||spinner_1.getValue().equals("")||spinner_2.getValue().equals("")||textField_2.getText().equals("")||spinner_1_1.getValue().equals("")) {
 						JOptionPane.showMessageDialog(null, "Please fill the form");
+			
+					}
+					else if(comboBox_1.getSelectedItem().equals("")||comboBox_1.getSelectedItem().equals(null)) {
 						
-						 
-							
+					}
+					else if(comboBox_1.getSelectedItem()!=null ||comboBoxLec1.getSelectedItem().toString().equals(comboBox_1.getSelectedItem().toString() ))
+					{
 						
-					}else if(comboBoxLec1.getSelectedItem().toString().equals(comboBox_1.getSelectedItem().toString())){
 						JOptionPane.showMessageDialog(null, "Select a different lecturer for lecturer 2");
-					
-					}else if(spinner_1.getValue().equals(spinner_1_1.getValue())){
+					}
+				
+					else if(spinner_1.getValue().equals(spinner_1_1.getValue())){
 						JOptionPane.showMessageDialog(null, "Invalid Session Start Time And End Time");
 					}else if(spinner_1.getValue().equals(11)&& spinner_1_1.getValue().equals(10)) {
 						JOptionPane.showMessageDialog(null, "Invalid Session Start Time And End Time");
@@ -516,13 +523,15 @@ public class AddSessions {
 					//else {
 							calculateDuration();
 							
+							
 							String Lecturer1=comboBoxLec1.getSelectedItem().toString();
-							String Lecturer2=comboBox_1.getSelectedItem().toString();
+							String Lecturer2 = comboBox_1.getSelectedItem().toString();
 							String Tag=comboBox_2.getSelectedItem().toString();
 							String Group=comboBox_3.getSelectedItem().toString();
 							//String subjectcode=comboBox_1_1.getSelectedItem().toString();
 							String subjectname=comboBox_1_1_1.getSelectedItem().toString();
 							String numberofstudents=spinner_2.getValue().toString();
+							int stCounts = Integer.parseInt(studentCount);
 							//String duration=spinner.getValue().toString();
 							String tduration=textField_2.getText().toString();
 							String starttime=spinner_1.getValue().toString();
@@ -535,14 +544,15 @@ public class AddSessions {
 							String msg = "" + subjectname;
 			                msg += "";
 			                
-			             //System.out.println(value);
-							
-							
+			        
+			                	
+			               	
+
 
 		                	Connection con = DBConnection.connect();
 
 		                    String query = "INSERT INTO Sessions values(null,'" + Lecturer1 + "','" + Lecturer2 + "','" + Tag + "','" +
-		                    		Group + "','" + numberofstudents + "','" + starttime + "','"+ endtime +"','"+ tduration +"','"+ subjectname +"','"+ sCode +"','"+ sessionid +"')";
+		                    		Group + "','" + stCounts + "','" + starttime + "','"+ endtime +"','"+ tduration +"','"+ subjectname +"','"+ sCode +"','"+ sessionid +"')";
 
 		                    java.sql.Statement sta = con.createStatement();
 		                    int xx = sta.executeUpdate(query);
@@ -582,13 +592,13 @@ public class AddSessions {
 		                   
 		                
 							
-							
+			                }
 							
 							
 							
 							
 						
-					}
+					
 					}
 					
 					
@@ -653,7 +663,7 @@ public class AddSessions {
 		panel_3.add(btnNewButton_14);
 		
 	    comboBoxLec1 = new JComboBox();
-	    comboBoxLec1.setModel(new DefaultComboBoxModel(new String[] {"----------Select Lecturer------"}));
+	    comboBoxLec1.setModel(new DefaultComboBoxModel(new String[] {"--------Select Lecturer---------"}));
 	    comboBoxLec1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	    comboBoxLec1.setBackground(new Color(255, 255, 255));
 		comboBoxLec1.setBounds(289, 36, 268, 36);
@@ -757,13 +767,14 @@ public class AddSessions {
 				String tag=(String)comboBox_2.getSelectedItem();
 				String groupID=(String)comboBox_3.getSelectedItem();
 				String studentCount=spinner_2.getValue().toString();
+				int stCount = Integer.parseInt(studentCount);
 				String duration=textField_2.getText().toString();
 				
 				
 				
 			
 				
-				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+studentCount+"."+duration;
+				String sessionID=Lec1Name+"."+SubName+"."+tag+"."+groupID+"."+stCount+"."+duration;
 				textField.setText(sessionID);
 				
 				
@@ -799,6 +810,8 @@ public class AddSessions {
 		textField_2.setBounds(790, 33, 225, 43);
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
+		
+
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(253, 24, 953, 67);
@@ -889,5 +902,4 @@ public class AddSessions {
 		//fillcombobox4();
 		
 	}
-
 }
