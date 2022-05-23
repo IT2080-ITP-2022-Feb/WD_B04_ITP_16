@@ -14,9 +14,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import consecutiveSession.NotAvailableTIme;
 import lecturerManagement.ManageLecturers;
+import sessions.AddSessions;
 import subjectManagement.AddSubjects;
 
 import java.awt.event.MouseAdapter;
@@ -27,6 +30,7 @@ import java.awt.event.MouseEvent;
 public class DashBoard {
 
 	private JFrame frame;
+	private JTextField DateTime;
 
 	/**
 	 * Launch the application.
@@ -186,7 +190,10 @@ public class DashBoard {
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				
+
+				AddSessions addsession = new AddSessions();
+				addsession.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setIcon(new ImageIcon(SessionMgt));
@@ -275,6 +282,10 @@ public class DashBoard {
 		btnNewButton_10_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+
+				NotAvailableTIme notavailabletime = new NotAvailableTIme();
+				notavailabletime.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_10_1.setFont(new Font("Calibri", Font.BOLD, 18));
@@ -282,6 +293,11 @@ public class DashBoard {
 		btnNewButton_10_1.setBounds(855, 412, 371, 79);
 		frame.getContentPane().add(btnNewButton_10_1);
 		
+		DateTime = new JTextField();
+		DateTime.setForeground(Color.WHITE);
+		DateTime.setFont(new Font("Tahoma", Font.BOLD, 15));
+		DateTime.setBounds(1114, 25, 197, 44);
+	
 		JLabel lblNewLabel_1 = new JLabel("    ");
 		lblNewLabel_1.setBounds(20, 88, 1201, 620);
 		frame.getContentPane().add(lblNewLabel_1);

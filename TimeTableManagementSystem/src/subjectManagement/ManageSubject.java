@@ -30,6 +30,7 @@ import connection.DBConnection;
 import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
+import sessions.AddSessions;
 
 public class ManageSubject {
 
@@ -121,7 +122,9 @@ public class ManageSubject {
 		JButton btnNewButton = new JButton("Home");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				DashBoard hme = new DashBoard();
+				hme.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -182,7 +185,10 @@ public class ManageSubject {
 		JButton btnNewButton_5 = new JButton("Sessions");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
+				AddSessions add = new AddSessions();
+				add.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
