@@ -534,7 +534,7 @@ public JFrame frame;
 		
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_14.setBackground(Color.decode("#0593A2"));
-		btnNewButton_14.setBounds(521, 409, 157, 41);
+		btnNewButton_14.setBounds(574, 409, 157, 41);
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_15 = new JButton("ADD");
@@ -680,8 +680,21 @@ public JFrame frame;
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_15.setBackground(Color.decode("#103778"));
-		btnNewButton_15.setBounds(297, 409, 157, 41);
+		btnNewButton_15.setBounds(341, 409, 157, 41);
 		panel_3.add(btnNewButton_15);
+		
+		JButton demobtn = new JButton("Demo");
+		demobtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				LecturerName.setText("Pasindu");
+			}
+		});
+		demobtn.setForeground(Color.BLACK);
+		demobtn.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		demobtn.setBackground(Color.WHITE);
+		demobtn.setBounds(111, 409, 157, 41);
+		panel_3.add(demobtn);
 		
 		table = new JTable();
 		table.setBounds(358, 44, 1, 1);
@@ -690,6 +703,8 @@ public JFrame frame;
 		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
 		TimetableBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 			}
 		});
 		TimetableBtn.setForeground(Color.BLACK);

@@ -800,6 +800,22 @@ public class AddSessions {
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
 		
+		JButton demobtn = new JButton("demo");
+		demobtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comboBoxLec1.setSelectedIndex(1);
+				comboBox_1.setSelectedIndex(3);
+				spinner_2.setValue(100);
+				comboBox_1_1_1.setSelectedIndex(2);
+				
+			}
+		});
+		demobtn.setForeground(Color.BLACK);
+		demobtn.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		demobtn.setBackground(Color.WHITE);
+		demobtn.setBounds(165, 448, 160, 54);
+		panel_3.add(demobtn);
+		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(253, 24, 953, 67);
 		frame.getContentPane().add(panel_4);
