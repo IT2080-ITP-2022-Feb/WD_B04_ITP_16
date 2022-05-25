@@ -23,6 +23,7 @@ import Tags.AddTags;
 import home.DashBoard;
 
 import java.awt.EventQueue;
+import javax.swing.BorderFactory;
 public class AddLocations {
 
 	private JFrame frame;
@@ -36,8 +37,9 @@ public class AddLocations {
 	private JTextField BuildingName;
 	private JTextField RoomName;
 	private JTextField Capacity;
+	private JTextField txtAddLocations;
 	/**
-	 * Launch the application.ss
+	 * Launch thse application.ss
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -64,14 +66,14 @@ public class AddLocations {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.BLACK);
+		frame.getContentPane().setBackground(new Color(65, 105, 225));
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(0, 51, 102));
+		panel_1.setBackground(new Color(192, 192, 192));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
 		
@@ -216,59 +218,11 @@ public class AddLocations {
 		btnNewButton_10.setBounds(10, 567, 213, 38);
 		panel_1.add(btnNewButton_10);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(Color.GREEN);
-		panel.setBounds(10, 10, 1216, 68);
-		frame.getContentPane().add(panel);
-		
-		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblNewLabel.setBackground(Color.BLUE);
-		lblNewLabel.setBounds(430, 0, 329, 68);
-		panel.add(lblNewLabel);
-		
-
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(51, 0, 153));
-		panel_2.setBounds(253, 88, 973, 76);
-		frame.getContentPane().add(panel_2);
-		
-		JButton btnNewButton_11 = new JButton("Add Location");
-		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddLocations addlocations=new AddLocations();
-				addlocations.main(null);
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_11.setForeground(Color.BLACK);
-		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11.setBackground(new Color(153, 255, 255));
-		btnNewButton_11.setBounds(10, 10, 266, 56);
-		panel_2.add(btnNewButton_11);
-		
-		JButton btnNewButton_12 = new JButton("Manage Location");
-		btnNewButton_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ManageLocations managelocations=new ManageLocations();
-				managelocations.main(null);
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(new Color(153, 255, 255));
-		btnNewButton_12.setBounds(697, 9, 266, 58);
-		panel_2.add(btnNewButton_12);
-		
 		
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(204, 255, 102));
-		panel_3.setBounds(253, 174, 973, 529);
+		panel_3.setBackground(new Color(65, 105, 225));
+		panel_3.setBounds(253, 184, 973, 529);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -422,7 +376,7 @@ public class AddLocations {
 					
 				catch(Exception w){
 					JOptionPane.showMessageDialog(null, w );
-					
+					System.out.println(w);
 				}
 				
 				finally{
@@ -447,5 +401,36 @@ public class AddLocations {
 		btnNewButton_15.setBackground(Color.CYAN);
 		btnNewButton_15.setBounds(719, 452, 157, 41);
 		panel_3.add(btnNewButton_15);
+		
+		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
+		TimetableBtn.setForeground(Color.BLACK);
+		TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		TimetableBtn.setBackground(new Color(255, 122, 72));
+		TimetableBtn.setBounds(10, 10, 233, 72);
+		frame.getContentPane().add(TimetableBtn);
+		
+		txtAddLocations = new JTextField();
+		txtAddLocations.setBounds(266, 34, 656, 88);
+		frame.getContentPane().add(txtAddLocations);
+		txtAddLocations.setText("ADD LOCATIONS");
+		txtAddLocations.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAddLocations.setForeground(Color.WHITE);
+		txtAddLocations.setFont(new Font("Tahoma", Font.BOLD, 65));
+		txtAddLocations.setColumns(10);
+		txtAddLocations.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
+		txtAddLocations.setBackground(new Color(70, 96, 189));
+		
+		JButton btnNewButton_12 = new JButton("Manage Location");
+		btnNewButton_12.setBounds(941, 40, 266, 58);
+		frame.getContentPane().add(btnNewButton_12);
+		btnNewButton_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManageLocations managelocations=new ManageLocations();
+				managelocations.main(null);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_12.setBackground(new Color(153, 255, 255));
 	}
 }

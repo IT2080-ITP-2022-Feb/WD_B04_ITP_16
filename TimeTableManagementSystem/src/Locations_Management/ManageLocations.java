@@ -30,6 +30,7 @@ import Tags.AddTags;
 
 import home.DashBoard;
 import net.proteanit.sql.DbUtils;
+import javax.swing.BorderFactory;
 
 public class ManageLocations {
 
@@ -47,7 +48,7 @@ public class ManageLocations {
 	private JTextField textField_3;
 
 	/**
-	 * Launch the application.sss
+	 * Launch sthe application.sss
 	 * 
 	 * 
 	 */
@@ -55,6 +56,7 @@ public class ManageLocations {
 	PreparedStatement pst=null;
 	ResultSet rs = null;
 	private JTextField textField_4;
+	private JTextField txtManageLocations;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -69,7 +71,7 @@ public class ManageLocations {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the afpplication.
 	 */
 	public ManageLocations() {
 		initialize();
@@ -80,28 +82,14 @@ public class ManageLocations {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(0, 0, 0));
+		frame.getContentPane().setBackground(new Color(65, 105, 225));
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
-		panel.setBounds(10, 10, 1216, 68);
-		frame.getContentPane().add(panel);
-		
-		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblNewLabel.setBackground(Color.BLUE);
-		lblNewLabel.setBounds(430, 0, 329, 68);
-		panel.add(lblNewLabel);
-		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(0, 51, 102));
+		panel_1.setBackground(new Color(192, 192, 192));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
 		
@@ -239,7 +227,7 @@ public class ManageLocations {
 		panel_1.add(btnNewButton_10);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(204, 255, 102));
+		panel_3.setBackground(new Color(65, 105, 225));
 		panel_3.setLayout(null);
 		panel_3.setBounds(253, 177, 973, 526);
 		frame.getContentPane().add(panel_3);
@@ -377,13 +365,6 @@ public class ManageLocations {
 		textField_3.setBackground(Color.WHITE);
 		textField_3.setBounds(712, 345, 235, 31);
 		panel_3.add(textField_3);
-
-	
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(51, 51, 153));
-		panel_2.setBounds(253, 88, 973, 76);
-		frame.getContentPane().add(panel_2);
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -454,51 +435,69 @@ public class ManageLocations {
 		textField_4.setBackground(Color.LIGHT_GRAY);
 		textField_4.setBounds(10, 263, 1, -1);
 		panel_3.add(textField_4);
-
-	
-		JButton btnNewButton_11 = new JButton("Add Locations");
-		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddLocations addlocations=new AddLocations();
-				addlocations.main(null);
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_11.setForeground(Color.BLACK);
-		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11.setBackground(new Color(153, 255, 255));
-		btnNewButton_11.setBounds(10, 10, 266, 56);
-		panel_2.add(btnNewButton_11);
-
-		JButton btnNewButton_12 = new JButton("Refresh");
-		btnNewButton_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		
+			
+				JButton btnNewButton_11 = new JButton("Add Locations");
+				btnNewButton_11.setBounds(960, 19, 266, 56);
+				frame.getContentPane().add(btnNewButton_11);
+				btnNewButton_11.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						AddLocations addlocations=new AddLocations();
+						addlocations.main(null);
+						frame.setVisible(false);
+					}
+				});
+				btnNewButton_11.setForeground(Color.BLACK);
+				btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
+				btnNewButton_11.setBackground(new Color(153, 255, 255));
 				
-				
-				
-				
-				Connection conn = connection.DBConnection.connect();
-				
-				
+						JButton btnNewButton_12 = new JButton("Refresh");
+						btnNewButton_12.setBounds(960, 85, 266, 58);
+						frame.getContentPane().add(btnNewButton_12);
+						btnNewButton_12.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								
+								
+								
+								
+								Connection conn = connection.DBConnection.connect();
+								
+								
 	            try {
 	            	String sql="Select * from Locations ";
-					pst=conn.prepareStatement(sql);
-					
-					rs=pst.executeQuery();
-					table_1.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+									pst=conn.prepareStatement(sql);
+									
+									rs=pst.executeQuery();
+									table_1.setModel(DbUtils.resultSetToTableModel(rs));
+								} catch (SQLException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
 	            
-				
-				
-			}
-		});
-		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(new Color(153, 255, 255));
-		btnNewButton_12.setBounds(697, 9, 266, 58);
-		panel_2.add(btnNewButton_12);
+								
+								
+							}
+						});
+						btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
+						btnNewButton_12.setBackground(new Color(153, 255, 255));
+						
+						txtManageLocations = new JTextField();
+						txtManageLocations.setText("MANAGE LOCATIONS");
+						txtManageLocations.setHorizontalAlignment(SwingConstants.CENTER);
+						txtManageLocations.setForeground(Color.WHITE);
+						txtManageLocations.setFont(new Font("Tahoma", Font.BOLD, 65));
+						txtManageLocations.setColumns(10);
+						txtManageLocations.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
+						txtManageLocations.setBackground(new Color(70, 96, 189));
+						txtManageLocations.setBounds(257, 58, 693, 72);
+						frame.getContentPane().add(txtManageLocations);
+						
+						JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
+						TimetableBtn.setForeground(Color.BLACK);
+						TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
+						TimetableBtn.setBackground(new Color(255, 122, 72));
+						TimetableBtn.setBounds(10, 6, 233, 72);
+						frame.getContentPane().add(TimetableBtn);
 		
 		
 	}

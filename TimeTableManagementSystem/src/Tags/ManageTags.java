@@ -34,11 +34,12 @@ import connection.DBConnection;
 import home.DashBoard;
 import lecturerManagement.AddingLecturers;
 import net.proteanit.sql.DbUtils;
+import javax.swing.BorderFactory;
 
 
 
 /**
- * @author uzmanws
+ * @author uzman ws
  *
  */
 public class ManageTags {
@@ -58,6 +59,7 @@ private JFrame frame;
 	private JTextField TagCode;
 	private JComboBox RelatedTag;
 	private JTable tagTable;
+	private JTextField txtManageTags;
 
 	/**
 	 * Launch the application.
@@ -95,13 +97,13 @@ private JFrame frame;
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setBackground(new Color(51,0,0));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setBackground(new Color(51,0,0));
+		frame.getContentPane().setBackground(new Color(65, 105, 225));
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Time Table Management System");
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(51, 51, 102));
+		panel_1.setBackground(new Color(192, 192, 192));
 		panel_1.setBounds(10, 88, 233, 615);
 		frame.getContentPane().add(panel_1);
 		
@@ -250,85 +252,9 @@ private JFrame frame;
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(153, 255, 0));
-		panel.setBounds(10, 10, 1216, 68);
-		frame.getContentPane().add(panel);
-		
-		JLabel lblNewLabel = new JLabel("TIMETABLE MANAGEMENT");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblNewLabel.setBackground(Color.BLUE);
-		lblNewLabel.setBounds(430, 0, 329, 68);
-		panel.add(lblNewLabel);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(51, 51, 102));
-		panel_2.setBounds(253, 88, 973, 76);
-		frame.getContentPane().add(panel_2);
-		
-		JButton btnNewButton_11 = new JButton("Add Tags");
-		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddTags addtags=new AddTags();
-				addtags.main(null);
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_11.setForeground(Color.BLACK);
-		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_11.setBackground(new Color(204, 255, 255));
-		btnNewButton_11.setBounds(10, 10, 266, 56);
-		panel_2.add(btnNewButton_11);
-		
-		JButton btnNewButton_12 = new JButton("Refresh");
-		btnNewButton_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-
-				
-				
-				
-				
-				Connection conn = DBConnection.connect();
-				
-				
-	            try {
-	            	String sql="Select * from Tag ";
-					pst=conn.prepareStatement(sql);
-					
-					rs=pst.executeQuery();
-					tagTable.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-	            
-				
-				
-			
-				
-			}
-		});
-		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ManageTags managetags=new ManageTags();
-				managetags.main(null);
-				frame.setVisible(false);
-			}
-		});
-
-		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(new Color(204, 255, 255));
-		btnNewButton_12.setBounds(697, 9, 266, 58);
-		panel_2.add(btnNewButton_12);
-		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(253, 174, 973, 529);
-		panel_3.setBackground(new Color(204, 255, 102));
+		panel_3.setBackground(new Color(65, 105, 225));
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -520,8 +446,81 @@ private JFrame frame;
 			}
 		});
 		scrollPane.setViewportView(tagTable);
+		
+		JButton btnNewButton_11 = new JButton("Add Tags");
+		btnNewButton_11.setBounds(947, 22, 266, 56);
+		frame.getContentPane().add(btnNewButton_11);
+		btnNewButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddTags addtags=new AddTags();
+				addtags.main(null);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_11.setForeground(Color.BLACK);
+		btnNewButton_11.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnNewButton_11.setBackground(new Color(204, 255, 255));
+		
+		txtManageTags = new JTextField();
+		txtManageTags.setText("MANAGE TAGS");
+		txtManageTags.setHorizontalAlignment(SwingConstants.CENTER);
+		txtManageTags.setForeground(Color.WHITE);
+		txtManageTags.setFont(new Font("Tahoma", Font.BOLD, 65));
+		txtManageTags.setColumns(10);
+		txtManageTags.setBorder(BorderFactory.createLineBorder(Color.decode("#4660BD")));
+		txtManageTags.setBackground(new Color(70, 96, 189));
+		txtManageTags.setBounds(265, 29, 656, 99);
+		frame.getContentPane().add(txtManageTags);
+		
+		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
+		TimetableBtn.setForeground(Color.BLACK);
+		TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		TimetableBtn.setBackground(new Color(255, 122, 72));
+		TimetableBtn.setBounds(10, 10, 233, 72);
+		frame.getContentPane().add(TimetableBtn);
+		
+		JButton btnNewButton_12 = new JButton("Refresh");
+		btnNewButton_12.setBounds(947, 88, 266, 58);
+		frame.getContentPane().add(btnNewButton_12);
+		btnNewButton_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				
+				
+				
+				Connection conn = DBConnection.connect();
+				
+				
+	            try {
+	            	String sql="Select * from Tag ";
+					pst=conn.prepareStatement(sql);
+					
+					rs=pst.executeQuery();
+					tagTable.setModel(DbUtils.resultSetToTableModel(rs));
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	            
+				
+				
+			
+				
+			}
+		});
+		
+				btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
+				btnNewButton_12.setBackground(new Color(204, 255, 255));
+		btnNewButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManageTags managetags=new ManageTags();
+				managetags.main(null);
+				frame.setVisible(false);
+			}
+		});
 
 
 	}
-
 }
