@@ -39,7 +39,7 @@ public class AddLocations {
 	private JTextField Capacity;
 	private JTextField txtAddLocations;
 	/**
-	 * Launch the afcpzxplication.ss
+	 * Launch the afcpzaxplication.ss
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
