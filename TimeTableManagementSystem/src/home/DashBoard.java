@@ -16,10 +16,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import DaysNHours.AddWorkingDays;
+import Locations_Management.AddLocations;
+import Tags.AddTags;
 import consecutiveSession.NotAvailableTIme;
 import lecturerManagement.ManageLecturers;
 import sessions.AddSessions;
 import subjectManagement.AddSubjects;
+import timeTable.LectureTimeTable;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -164,7 +168,10 @@ public class DashBoard {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				
+				AddWorkingDays addsubject = new AddWorkingDays();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_4.setIcon(new ImageIcon(WorkingDay));
@@ -205,7 +212,10 @@ public class DashBoard {
 		btnNewButton_6.setIcon(new ImageIcon(Location));
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AddLocations addsubject = new AddLocations();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_6.setFont(new Font("Calibri", Font.BOLD, 18));
@@ -218,7 +228,10 @@ public class DashBoard {
 		btnNewButton_7.setIcon(new ImageIcon(Tag));
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AddTags addsubject = new AddTags();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_7.setFont(new Font("Calibri", Font.BOLD, 18));
@@ -249,7 +262,10 @@ public class DashBoard {
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
+				LectureTimeTable addsubject = new LectureTimeTable();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			
 				
 			
@@ -292,7 +308,7 @@ public class DashBoard {
 		frame.getContentPane().add(btnNewButton_10_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("    ");
-		lblNewLabel_1.setBounds(20, 88, 1201, 620);
+		lblNewLabel_1.setBounds(-79, 93, 1201, 620);
 		frame.getContentPane().add(lblNewLabel_1);
 		frame.setBounds(30, 30, 1250, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

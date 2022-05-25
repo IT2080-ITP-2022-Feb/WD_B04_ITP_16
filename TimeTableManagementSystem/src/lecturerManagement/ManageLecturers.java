@@ -28,9 +28,15 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import DaysNHours.AddWorkingDays;
+import Locations_Management.AddLocations;
+import Tags.AddTags;
 import net.proteanit.sql.DbUtils;
+import sessions.AddSessions;
 import subjectManagement.AddSubjects;
+import timeTable.LectureTimeTable;
 import connection.DBConnection;
+import consecutiveSession.NotAvailableTIme;
 import home.DashBoard;
 
 
@@ -109,10 +115,10 @@ public class ManageLecturers {
 		JButton btnNewButton_1 = new JButton("Lecturers");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				AddingLecturers addinglectures=new AddingLecturers();
 				addinglectures.main(null);
 				frame.setVisible(false);
-
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -128,16 +134,18 @@ public class ManageLecturers {
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		btnNewButton_2.setBackground(Color.decode("#FFFEFE"));
-		btnNewButton_2.setBounds(10, 106, 213, 38);
+		btnNewButton_2.setBounds(10, 106, 213, 38);//coom
 		panel_1.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AddSubjects add = new AddSubjects();
-				add.main(null);
+			 
+			 AddSubjects addsubject = new AddSubjects();
+				AddSubjects.main(null);
 				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -148,8 +156,9 @@ public class ManageLecturers {
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-
+				AddWorkingDays addwork = new AddWorkingDays();
+				addwork.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -160,7 +169,10 @@ public class ManageLecturers {
 		JButton btnNewButton_5 = new JButton("Sessions");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				
+				AddSessions addsess = new AddSessions();
+				addsess.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -172,6 +184,10 @@ public class ManageLecturers {
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				AddLocations addloc = new AddLocations();
+				addloc.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -182,7 +198,9 @@ public class ManageLecturers {
 		JButton btnNewButton_7 = new JButton("Tags");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AddTags addtag = new AddTags();
+				addtag.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -193,8 +211,9 @@ public class ManageLecturers {
 		JButton btnNewButton_8_1 = new JButton("Session Types");
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				
+				NotAvailableTIme not = new NotAvailableTIme();
+				not.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -205,7 +224,7 @@ public class ManageLecturers {
 		JButton btnNewButton_8 = new JButton("Session Rooms");
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+		
 
 			}
 		});
@@ -217,8 +236,10 @@ public class ManageLecturers {
 		JButton btnNewButton_9 = new JButton("Generate Timetables");
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-			
+				
+				LectureTimeTable ltimetable = new LectureTimeTable();
+				ltimetable.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));

@@ -22,9 +22,15 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
+import DaysNHours.AddWorkingDays;
+import Locations_Management.AddLocations;
+import Tags.AddTags;
 import connection.DBConnection;
+import consecutiveSession.NotAvailableTIme;
 import home.DashBoard;
 import lecturerManagement.AddingLecturers;
+import subjectManagement.AddSubjects;
+import timeTable.LectureTimeTable;
 
 
 
@@ -258,6 +264,20 @@ public class AddSessions {
 		btnNewButton_1.setBounds(10, 58, 213, 38);
 		panel_1.add(btnNewButton_1);
 		
+		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
+		TimetableBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		TimetableBtn.setForeground(Color.BLACK);
+		//TimetableBtn.setEnabled(false);
+		TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		TimetableBtn.setBackground(Color.decode("#FF7A48"));
+		TimetableBtn.setBounds(10, 10, 233, 72);
+		frame.getContentPane().add(TimetableBtn);
+		
 		JButton btnNewButton_2 = new JButton("Student Groups");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -272,7 +292,12 @@ public class AddSessions {
 		JButton btnNewButton_3 = new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			;
+				
+			 
+			 AddSubjects addsubject = new AddSubjects();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -283,7 +308,9 @@ public class AddSessions {
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AddWorkingDays addwork = new AddWorkingDays();
+				addwork.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -295,6 +322,9 @@ public class AddSessions {
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				AddSessions addsess = new AddSessions();
+				addsess.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -305,6 +335,10 @@ public class AddSessions {
 		JButton btnNewButton_6 = new JButton("Locations");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				AddLocations addloc = new AddLocations();
+				addloc.main(null);
+				frame.setVisible(false);
 			
 			}
 		});
@@ -316,7 +350,9 @@ public class AddSessions {
 		JButton btnNewButton_7 = new JButton("Tags");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				AddTags addtag = new AddTags();
+				addtag.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -327,7 +363,9 @@ public class AddSessions {
 		JButton btnNewButton_8_1 = new JButton("Session Types");
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				NotAvailableTIme not = new NotAvailableTIme();
+				not.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -351,7 +389,9 @@ public class AddSessions {
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				LectureTimeTable ltimetable = new LectureTimeTable();
+				ltimetable.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -617,17 +657,7 @@ public class AddSessions {
 		btnNewButton_13.setBounds(370, 448, 160, 54);
 		panel_3.add(btnNewButton_13);
 		
-		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
-		TimetableBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		TimetableBtn.setForeground(Color.BLACK);
-		//TimetableBtn.setEnabled(false);
-		TimetableBtn.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		TimetableBtn.setBackground(Color.decode("#FF7A48"));
-		TimetableBtn.setBounds(10, 10, 233, 72);
-		frame.getContentPane().add(TimetableBtn);
+	
 		
 		JButton btnNewButton_14 = new JButton("Clear");
 		btnNewButton_14.setForeground(Color.WHITE);

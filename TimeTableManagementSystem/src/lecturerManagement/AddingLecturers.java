@@ -27,8 +27,15 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import DaysNHours.AddWorkingDays;
+import Locations_Management.AddLocations;
+import Tags.AddTags;
 import connection.DBConnection;
+import consecutiveSession.NotAvailableTIme;
 import home.DashBoard;
+import sessions.AddSessions;
+import subjectManagement.AddSubjects;
+import timeTable.LectureTimeTable;
 
 import javax.swing.JTextPane;
 import javax.swing.JTable;
@@ -204,7 +211,12 @@ public JFrame frame;
 		JButton btnNewButton_3 = new JButton("Subjects");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			;
+				
+			 
+			 AddSubjects addsubject = new AddSubjects();
+				AddSubjects.main(null);
+				frame.setVisible(false);
+			
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -215,7 +227,9 @@ public JFrame frame;
 		JButton btnNewButton_4 = new JButton("Working days/Hours");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				AddWorkingDays addwork = new AddWorkingDays();
+				addwork.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -227,6 +241,9 @@ public JFrame frame;
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				AddSessions addsess = new AddSessions();
+				addsess.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -237,6 +254,10 @@ public JFrame frame;
 		JButton btnNewButton_6 = new JButton("Locations");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				AddLocations addloc = new AddLocations();
+				addloc.main(null);
+				frame.setVisible(false);
 			
 			}
 		});
@@ -248,7 +269,9 @@ public JFrame frame;
 		JButton btnNewButton_7 = new JButton("Tags");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				AddTags addtag = new AddTags();
+				addtag.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -259,7 +282,9 @@ public JFrame frame;
 		JButton btnNewButton_8_1 = new JButton("Session Types");
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				NotAvailableTIme not = new NotAvailableTIme();
+				not.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -283,7 +308,9 @@ public JFrame frame;
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				LectureTimeTable ltimetable = new LectureTimeTable();
+				ltimetable.main(null);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
