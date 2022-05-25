@@ -111,7 +111,7 @@ private JFrame frame;
 		});
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton.setBackground(Color.CYAN);
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(10, 10, 213, 38);
 		panel_1.add(btnNewButton);
 		
@@ -124,7 +124,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_1.setBackground(Color.CYAN);
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setBounds(10, 58, 213, 38);
 		panel_1.add(btnNewButton_1);
 		
@@ -135,7 +135,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2.setBackground(Color.CYAN);
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.setBounds(10, 106, 213, 38);
 		panel_1.add(btnNewButton_2);
 		
@@ -147,7 +147,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_3.setBackground(Color.CYAN);
+		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBounds(10, 154, 213, 38);
 		panel_1.add(btnNewButton_3);
 		
@@ -160,7 +160,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_4.setBackground(Color.CYAN);
+		btnNewButton_4.setBackground(new Color(255, 255, 255));
 		btnNewButton_4.setBounds(10, 202, 213, 38);
 		panel_1.add(btnNewButton_4);
 		
@@ -171,7 +171,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_5.setBackground(Color.CYAN);
+		btnNewButton_5.setBackground(new Color(255, 255, 255));
 		btnNewButton_5.setBounds(10, 250, 213, 38);
 		panel_1.add(btnNewButton_5);
 		
@@ -182,7 +182,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_6.setBackground(Color.CYAN);
+		btnNewButton_6.setBackground(new Color(255, 255, 255));
 		btnNewButton_6.setBounds(10, 298, 213, 38);
 		panel_1.add(btnNewButton_6);
 		
@@ -195,7 +195,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_7.setBackground(Color.CYAN);
+		btnNewButton_7.setBackground(new Color(255, 255, 255));
 		btnNewButton_7.setBounds(10, 346, 213, 38);
 		panel_1.add(btnNewButton_7);
 		
@@ -207,7 +207,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8_1.setBackground(Color.CYAN);
+		btnNewButton_8_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_8_1.setBounds(10, 394, 213, 38);
 		panel_1.add(btnNewButton_8_1);
 		
@@ -218,7 +218,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8.setBackground(Color.CYAN);
+		btnNewButton_8.setBackground(new Color(255, 255, 255));
 		btnNewButton_8.setBounds(10, 442, 213, 38);
 		panel_1.add(btnNewButton_8);
 		
@@ -229,7 +229,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_9.setBackground(Color.CYAN);
+		btnNewButton_9.setBackground(new Color(255, 255, 255));
 		btnNewButton_9.setBounds(10, 490, 213, 38);
 		panel_1.add(btnNewButton_9);
 		
@@ -240,7 +240,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_10_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_10_1.setBackground(Color.CYAN);
+		btnNewButton_10_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_10_1.setBounds(10, 538, 213, 38);
 		panel_1.add(btnNewButton_10_1);
 		
@@ -288,6 +288,7 @@ private JFrame frame;
 		panel_3.add(RelatedTag);
 		
 		JButton btnNewButton_14 = new JButton("Save");
+		btnNewButton_14.setForeground(new Color(255, 255, 255));
 		btnNewButton_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -522,11 +523,12 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_14.setBackground(Color.CYAN);
+		btnNewButton_14.setBackground(new Color(0, 0, 128));
 		btnNewButton_14.setBounds(215, 375, 168, 46);
 		panel_3.add(btnNewButton_14);
 		
 		JButton btnNewButton_14_1 = new JButton("Clear");
+		btnNewButton_14_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_14_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -538,7 +540,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_14_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_14_1.setBackground(Color.CYAN);
+		btnNewButton_14_1.setBackground(new Color(0, 0, 128));
 		btnNewButton_14_1.setBounds(625, 375, 168, 46);
 		panel_3.add(btnNewButton_14_1);
 		
@@ -561,7 +563,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(new Color(204, 255, 255));
+		btnNewButton_12.setBackground(new Color(128, 0, 128));
 		
 		txtAddTags = new JTextField();
 		txtAddTags.setText("ADD TAGS");

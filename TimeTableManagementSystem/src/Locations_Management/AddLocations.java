@@ -87,7 +87,7 @@ public class AddLocations {
 		});
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton.setBackground(Color.CYAN);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setBounds(10, 10, 213, 38);
 		panel_1.add(btnNewButton);
 		
@@ -100,7 +100,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_1.setBackground(Color.CYAN);
+		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(10, 65, 213, 38);
 		panel_1.add(btnNewButton_1); 
 		
@@ -111,7 +111,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2.setBackground(Color.CYAN);
+		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.setBounds(10, 124, 213, 38);
 		panel_1.add(btnNewButton_2);
 		
@@ -123,7 +123,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_3.setBackground(Color.CYAN);
+		btnNewButton_3.setBackground(Color.WHITE);
 		btnNewButton_3.setBounds(10, 181, 213, 38);
 		panel_1.add(btnNewButton_3);
 		
@@ -134,7 +134,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_4.setBackground(Color.CYAN);
+		btnNewButton_4.setBackground(Color.WHITE);
 		btnNewButton_4.setBounds(10, 235, 213, 38);
 		panel_1.add(btnNewButton_4);
 		
@@ -146,7 +146,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_5.setBackground(Color.CYAN);
+		btnNewButton_5.setBackground(Color.WHITE);
 		btnNewButton_5.setBounds(10, 289, 213, 38);
 		panel_1.add(btnNewButton_5);
 		
@@ -166,7 +166,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_6.setBackground(Color.CYAN);
+		btnNewButton_6.setBackground(Color.WHITE);
 		btnNewButton_6.setBounds(10, 344, 213, 38);
 		panel_1.add(btnNewButton_6);
 		
@@ -180,7 +180,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_7.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_7.setBackground(Color.CYAN);
+		btnNewButton_7.setBackground(Color.WHITE);
 		btnNewButton_7.setBounds(10, 400, 213, 38);
 		panel_1.add(btnNewButton_7);
 		
@@ -191,7 +191,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_8.setBackground(Color.CYAN);
+		btnNewButton_8.setBackground(Color.WHITE);
 		btnNewButton_8.setBounds(10, 456, 213, 38);
 		panel_1.add(btnNewButton_8);
 		
@@ -202,8 +202,8 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_9.setBackground(Color.CYAN);
-		btnNewButton_9.setBounds(10, 512, 213, 38);
+		btnNewButton_9.setBackground(Color.WHITE);
+		btnNewButton_9.setBounds(10, 518, 213, 38);
 		panel_1.add(btnNewButton_9);
 	
 		
@@ -214,7 +214,7 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_10.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_10.setBackground(Color.CYAN);
+		btnNewButton_10.setBackground(Color.WHITE);
 		btnNewButton_10.setBounds(10, 567, 213, 38);
 		panel_1.add(btnNewButton_10);
 		
@@ -284,6 +284,7 @@ public class AddLocations {
 		
 
 		JButton btnNewButton_14 = new JButton("Clear");
+		btnNewButton_14.setForeground(new Color(255, 255, 255));
 		btnNewButton_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -296,13 +297,14 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_14.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_14.setBackground(Color.CYAN);
+		btnNewButton_14.setBackground(new Color(0, 0, 128));
 		btnNewButton_14.setBounds(435, 452, 157, 41);
 		panel_3.add(btnNewButton_14);
 		
 		
 		
 		JButton btnNewButton_15 = new JButton("Save");
+		btnNewButton_15.setForeground(new Color(255, 255, 255));
 		btnNewButton_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -402,8 +404,8 @@ public class AddLocations {
 			
 		});
 		btnNewButton_15.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_15.setBackground(Color.CYAN);
-		btnNewButton_15.setBounds(719, 452, 157, 41);
+		btnNewButton_15.setBackground(new Color(0, 0, 128));
+		btnNewButton_15.setBounds(713, 452, 157, 41);
 		panel_3.add(btnNewButton_15);
 		
 		JButton TimetableBtn = new JButton("TIMETABLE GENERATOR");
@@ -436,6 +438,6 @@ public class AddLocations {
 			}
 		});
 		btnNewButton_12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_12.setBackground(new Color(153, 255, 255));
+		btnNewButton_12.setBackground(new Color(128, 0, 128));
 	}
 }
