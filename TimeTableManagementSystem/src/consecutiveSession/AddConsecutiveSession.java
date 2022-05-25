@@ -351,7 +351,7 @@ private JFrame frame;
 			}
 		});
 		btnNewButton_2_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNewButton_2_1.setBackground(new Color(255, 248, 220));
+		btnNewButton_2_1.setBackground(Color.WHITE);
 		btnNewButton_2_1.setBounds(10, 11, 230, 55);
 		panel_2.add(btnNewButton_2_1);
 		
